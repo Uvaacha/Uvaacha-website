@@ -1,0 +1,324 @@
+:root {
+  --primary-blue: #00b8ff;
+  --dark-text: #0b2540;
+  --secondary: #f6f8f9;
+}
+
+/* =============================================
+   🎓 HERO SECTION — WITH PARALLAX EFFECT
+   ============================================= */
+.education-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.education-overlay {
+  background: rgba(11, 37, 64, 0.7);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.education-content {
+  color: #ffffff;
+  max-width: 900px;
+  z-index: 2;
+}
+
+.education-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: var(--primary-blue);
+}
+
+.education-content p {
+  font-size: 1.2rem;
+  color: #e0ecf5;
+  margin-bottom: 35px;
+}
+
+.cta-btn {
+  background-color: var(--primary-blue);
+  color: #ffffff;
+  border: none;
+  padding: 14px 34px;
+  border-radius: 40px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.cta-btn:hover {
+  background-color: #0095cc;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .education-hero {
+    background-attachment: scroll;
+  }
+
+  .education-content h1 {
+    font-size: 2rem;
+  }
+
+  .education-content p {
+    font-size: 1rem;
+  }
+}
+
+/* =============================================
+   💡 TRANSFORMING EDUCATION SECTION
+   ============================================= */
+.education-transform {
+  background-color: #ffffff;
+  color: var(--dark-text);
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.transform-container {
+  max-width: 1100px;
+  text-align: center;
+}
+
+.transform-container h2 {
+  font-size: 2.8rem;
+  color: #0b2540;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+
+.intro,
+.secondary {
+  font-size: 1.1rem;
+  color: var(--dark-text);
+  opacity: 0.9;
+  line-height: 1.8;
+  margin-bottom: 25px;
+}
+
+.secondary {
+  margin-bottom: 60px;
+}
+
+.bold-blue,
+.highlight-text {
+  color: var(--primary-blue);
+  font-weight: 700;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 35px;
+  justify-content: center;
+}
+
+.edu-card {
+  background: #f9fdff;
+  border-radius: 16px;
+  padding: 35px 25px;
+  box-shadow: 0 4px 15px rgba(0, 184, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.bordered {
+  border: 2px solid var(--primary-blue);
+}
+
+.edu-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 184, 255, 0.2);
+}
+
+.edu-card h3 {
+  color: #0b2540;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.edu-card p {
+  color: var(--dark-text);
+  opacity: 0.85;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* =============================================
+   🤖 TECHNOLOGIES SECTION
+   ============================================= */
+.education-tech {
+  background-color: var(--dark-text);
+  color: #ffffff;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.tech-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tech-container h2 {
+  color: var(--primary-blue);
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.tech-intro {
+  font-size: 1.1rem;
+  color: #e0ecf5;
+  margin-bottom: 60px;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.tech-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px 20px;
+  box-shadow: 0 6px 20px rgba(0, 184, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.tech-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 184, 255, 0.25);
+}
+
+.tech-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.tech-card h3 {
+  color: var(--primary-blue);
+  font-weight: 700;
+}
+
+.tech-card p {
+  color: #333;
+  opacity: 0.95;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* =============================================
+   📈 BUILDING IMPACT SECTION
+   ============================================= */
+.impact-section {
+  background-color: #ffffff;
+  padding: 100px 20px;
+  text-align: center;
+  color: var(--dark-text);
+}
+
+.impact-simple {
+  max-width: 850px;
+  margin: auto;
+}
+
+.impact-simple h2 {
+  font-size: 2.3rem;
+  font-weight: 800;
+  margin-bottom: 25px;
+}
+
+.impact-simple p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--dark-text);
+  opacity: 0.9;
+  margin-bottom: 25px;
+}
+
+.impact-sub {
+  font-style: italic;
+  color: var(--primary-blue);
+  font-weight: 600;
+  margin-top: 30px;
+}
+
+/* =============================================
+   🎓 FINAL CTA SECTION (MATCHING HEALTHCARE)
+   ============================================= */
+.educationtrust-cta {
+  background-color: #002b5b;
+  text-align: center;
+  padding: 100px 8%;
+  color: var(--dark-text);
+}
+
+.educationtrust-cta h2 {
+  color: #0094ff;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.educationtrust-cta p {
+  font-size: 1.1rem;
+  color: #f6f8f9;
+  margin-bottom: 2rem;
+}
+
+.cta-btn {
+  background-color: var(--dark-text);
+  color: #ffffff;
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #003d80;
+  transform: scale(1.05);
+}
+
+/* =============================================
+   🦶 FOOTER
+   ============================================= */
+.footer {
+  background-color: #000;
+  color: #ccc;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 0.9rem;
+}
+
+.footer p {
+  margin: 0;
+}

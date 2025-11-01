@@ -1,0 +1,358 @@
+/* ==============================================
+   🌍 MANUFACTURING PAGE STYLES (MODERN ICON VERSION — FINAL)
+   ============================================== */
+:root {
+  --primary: #002b5b;
+  --secondary: #f6f8f9;
+  --accent: #00c6d7;
+  --accent-strong: #00aaff;
+  --card-bg: #fafcfd;
+  --muted: #475d75;
+
+  /* Section-specific colors */
+  --cosmetic-color: #00b8ff;
+  --perfume-color: #ff6fd8;
+  --detergent-color: #00d1a1;
+  --future-color: #19c3f8;
+}
+
+/* ------------------------------
+   HERO SECTION
+   ------------------------------ */
+.manufacturing-hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary);
+}
+
+.hero-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.hero-overlay {
+  position: relative;
+  background: rgba(0, 43, 91, 0.55);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.hero-text {
+  max-width: 800px;
+  color: #f6f8f9;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.hero-text p {
+  font-size: 1.3rem;
+  line-height: 1.7;
+}
+
+/* ==============================================
+   INNOVATION MEETS PRECISION
+   ============================================== */
+.upgraded-overview {
+  background: #f6f8f9;
+  text-align: center;
+  padding: 100px 8%;
+  color: var(--primary);
+  position: relative;
+  z-index: 2;
+}
+
+.upgraded-overview h2 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.upgraded-overview p {
+  max-width: 850px;
+  margin: 0 auto 70px;
+  color: var(--primary);
+  opacity: 0.85;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+/* ==============================================
+   INFO CARDS
+   ============================================== */
+.overview-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  justify-content: center;
+}
+
+.info-card {
+  background: #f9fbff;
+  border: 2px solid var(--accent);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  color: #002b5b;
+  box-shadow: 0 6px 20px rgba(0, 198, 215, 0.08);
+  transition: all 0.3s ease;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 198, 215, 0.25);
+  transform: translateY(-6px);
+}
+
+.info-card h3 {
+  color: #002b5b;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.info-card p {
+  color: #333;
+  opacity: 0.9;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  margin: 0 auto;
+  max-width: 340px;
+}
+
+/* ==============================================
+   MANUFACTURING FEATURES SECTION
+   ============================================== */
+.feature-section {
+  padding: 100px 8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.5s ease;
+}
+
+.light-bg {
+  background: #f6f8f9;
+  color: #002b5b;
+}
+
+.dark-bg {
+  background: #002b5b;
+  color: #f6f8f9;
+}
+
+.feature-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.feature-content.reverse {
+  flex-direction: row-reverse;
+}
+
+/* ====== TEXT BLOCK ====== */
+.text-block {
+  flex: 1;
+  min-width: 320px;
+}
+
+.text-block h2 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+}
+
+.text-block p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  opacity: 0.9;
+  margin-bottom: 2.5rem;
+}
+
+/* ====== IMAGE BLOCK ====== */
+.image-block {
+  flex: 1;
+  min-width: 320px;
+  text-align: center;
+}
+
+.image-block img {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.6s ease;
+}
+
+.image-block img:hover {
+  transform: scale(1.03);
+}
+
+/* ==============================================
+   🌟 FEATURE LIST WITH MODERN ICONS
+   ============================================== */
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  font-weight: 500;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+/* ✅ Icon base */
+.feature-list .icon {
+  font-size: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+/* 🌈 Section-specific colors */
+.cosmetics-list .icon {
+  color: var(--cosmetic-color);
+}
+.perfume-list .icon {
+  color: var(--perfume-color);
+}
+.detergent-list .icon {
+  color: var(--detergent-color);
+}
+.future-list .icon {
+  color: var(--future-color);
+}
+
+/* ✨ Hover effect */
+.feature-list li:hover .icon {
+  transform: scale(1.2);
+}
+
+.feature-list li:hover {
+  text-shadow: 0 0 8px rgba(0, 198, 215, 0.25);
+  cursor: default;
+}
+
+/* ❌ Prevent color change when clicked */
+.feature-list li,
+.feature-list li:focus,
+.feature-list li:active {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+/* Responsive alignment */
+@media (max-width: 992px) {
+  .feature-list li {
+    text-align: left;
+    margin: 0.5rem auto;
+    max-width: 450px;
+  }
+}
+
+/* ==============================================
+   CTA SECTION
+   ============================================== */
+.cta-section {
+  position: relative;
+  width: 100%;
+  background: #f6f8f9;
+  text-align: center;
+  padding: 100px 8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+.cta-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-container h2 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.cta-container p {
+  font-size: 1.15rem;
+  color: var(--primary);
+  opacity: 0.85;
+  margin-bottom: 2.5rem;
+}
+
+/* ✅ Glowing Gradient Button */
+.cta-button {
+  display: inline-block;
+  background: linear-gradient(90deg, #00c6d7, #00aaff);
+  color: white;
+  padding: 0.9rem 2.3rem;
+  border-radius: 40px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0, 198, 215, 0.4);
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  box-shadow: 0 8px 25px rgba(0, 198, 215, 0.55);
+  transform: translateY(-3px);
+}
+
+.cta-button:active {
+  transform: translateY(1px);
+}
+
+/* =============================================
+   🦶 FOOTER
+   ============================================= */
+.footer {
+  background-color: #000;
+  color: #ccc;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 0.9rem;
+}
+
+.footer p {
+  margin: 0;
+}

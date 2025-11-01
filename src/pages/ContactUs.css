@@ -1,0 +1,308 @@
+/* ===============================
+   Corporate Contact Page
+   Deep Blue Refined Theme (No File Upload)
+================================= */
+
+:root {
+  --primary: #002b5b;
+  --secondary: #001a33;
+  --accent: #0094ff;
+  --white: #ffffff;
+  --light: #f5f8fc;
+  --font-main: "Poppins", sans-serif;
+}
+
+/* ===============================
+   Base Layout
+================================= */
+.contact-modern {
+  font-family: var(--font-main);
+  background: var(--light);
+  color: var(--secondary);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* ===============================
+   Hero Section
+================================= */
+.hero-section {
+  height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInHero 1.8s ease-in-out;
+  background-attachment: fixed;
+}
+
+.hero-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 26, 51, 0.4);
+}
+
+.hero-center {
+  text-align: center;
+  max-width: 800px;
+  padding: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-center h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  color: var(--white);
+  animation: slideUp 1.2s ease-in-out;
+}
+
+.hero-center p {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  opacity: 0.95;
+  margin: 0 auto;
+  color: var(--white);
+  animation: fadeIn 2s ease-in;
+}
+
+/* ===============================
+   Contact Section
+================================= */
+.contact-section {
+  background-color: var(--white);
+  padding: 8rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.contact-wrapper {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 4rem;
+}
+
+/* ===============================
+   LEFT SIDE - CONTACT INFO
+================================= */
+.contact-info {
+  margin-top: 2.5rem;
+}
+
+.contact-info h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--primary);
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.info-icon {
+  font-size: 1.8rem;
+  margin-right: 1rem;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.info-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+  color: var(--accent);
+}
+
+.info-item p {
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.6;
+  color: var(--primary);
+}
+
+.phone-link {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.phone-link:hover {
+  text-decoration: underline;
+}
+
+/* ===============================
+   RIGHT SIDE - FORM
+================================= */
+.contact-form {
+  background-color: #7aacd2;
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: stretch;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.contact-form:hover {
+  transform: translateY(-3px);
+}
+
+.form-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.form-subtitle {
+  font-size: 1rem;
+  color: #100f0f;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  background-color: var(--white);
+  color: var(--primary);
+  transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(0, 148, 255, 0.3);
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.contact-form button {
+  background-color: #141414;
+  color: var(--white);
+  border: none;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #0077cc;
+}
+
+.contact-form button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ===============================
+   ERROR MESSAGE
+================================= */
+.error-msg {
+  color: #ff4d4d;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+/* ===============================
+   ANIMATIONS
+================================= */
+@keyframes fadeInHero {
+  0% {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ===============================
+   RESPONSIVE DESIGN
+================================= */
+@media (max-width: 1000px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info {
+    margin-top: 0;
+    text-align: left;
+  }
+
+  .contact-form {
+    margin-top: 3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-center h1 {
+    font-size: 2.6rem;
+  }
+
+  .hero-center p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .contact-form {
+    padding: 1.8rem;
+  }
+}

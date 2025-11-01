@@ -1,0 +1,435 @@
+/* ===============================================
+   IMPORT & EXPORT PAGE STYLES
+   =============================================== */
+
+.importexport-page {
+  width: 100%;
+  height: 100%;
+  background-color: #f6f8f9;
+  overflow-x: hidden;
+}
+
+/* -------------------------------
+   HERO SECTION (PARALLAX STYLE)
+-------------------------------- */
+.importexport-hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.importexport-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(72, 70, 70, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.importexport-text {
+  color: #ffffff;
+  max-width: 900px;
+  padding: 40px;
+  text-align: center;
+}
+
+.importexport-text h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.importexport-text p {
+  font-size: 1.3rem;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+/* -------------------------------
+   GLOBAL CONNECTIONS SECTION
+-------------------------------- */
+.global-connections {
+  background-color: #002b5b;
+  color: #f6f8f9;
+  padding: 100px 10%;
+  text-align: center;
+}
+
+.connections-header {
+  max-width: 900px;
+  margin: 0 auto 70px auto;
+}
+
+.connections-header h2 {
+  color: #00c6d7;
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.connections-header p {
+  color: #cbd5e1;
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+/* -------------------------------
+   2x2 CARD GRID
+-------------------------------- */
+.connection-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 60px;
+  justify-items: center;
+  align-items: stretch;
+  margin-top: 60px;
+}
+
+.connection-card {
+  background-color: #003c7a;
+  padding: 35px 30px;
+  border-radius: 18px;
+  text-align: left;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+.connection-card:hover {
+  background-color: #144063;
+  transform: translateY(-5px);
+}
+
+.connection-card h3 {
+  color: #00c6d7;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.connection-card p {
+  color: #e3edf5;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* -------------------------------
+   RESPONSIVE DESIGN
+-------------------------------- */
+@media (max-width: 900px) {
+  .connection-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .connection-card {
+    max-width: 100%;
+  }
+
+  .connections-header h2 {
+    font-size: 2rem;
+  }
+
+  .importexport-text h1 {
+    font-size: 2rem;
+  }
+
+  .importexport-text p {
+    font-size: 1rem;
+  }
+}
+
+/* ===============================
+   OUR CORE SERVICES SECTION
+   =============================== */
+
+.core-services {
+  background-color: #f6f8f9;
+  color: #f6f8f9;
+  text-align: center;
+  padding: 100px 8%;
+}
+
+.core-services h2 {
+  color: #002b5b;
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 60px;
+}
+
+/* Services Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  justify-items: center;
+  align-items: stretch;
+}
+
+/* Service Card */
+.service-card {
+  background-color: #002b5b;
+  border-radius: 20px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  padding-bottom: 30px;
+  text-align: left;
+  max-width: 320px;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  background-color: #1b232a;
+  transform: translateY(-5px);
+}
+
+/* Card Image */
+.service-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 3px solid #00c6d7;
+}
+
+/* Card Title */
+.service-card h3 {
+  color: #00c6d7;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 20px 25px 10px;
+}
+
+/* Card Description */
+.service-card p {
+  color: #e5eaf0;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 25px;
+}
+
+/* Responsive Layouts */
+@media (max-width: 1200px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    max-width: 100%;
+  }
+
+  .core-services h2 {
+    font-size: 2rem;
+  }
+}
+
+/* ===============================================
+   FUTURE OF GLOBAL TRADE SECTION
+   =============================================== */
+
+.future-trade-section {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Parallax effect */
+  color: #ffffff;
+  text-align: center;
+  padding: 120px 10%;
+  overflow: hidden;
+}
+
+/* Transparent Overlay over entire section */
+.future-overlay {
+  position: relative;
+  background: rgba(0, 0, 0, 0.55); /* full-section transparent overlay */
+  backdrop-filter: blur(6px); /* subtle glass effect */
+  border-radius: 0;
+  padding: 100px 5%;
+}
+
+/* Header */
+.future-header {
+  max-width: 900px;
+  margin: 0 auto 60px auto;
+}
+
+.future-header h2 {
+  color: #00c6d7;
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.future-header p {
+  color: #e5eaf0;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Grid Layout */
+.future-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 60px;
+  justify-items: center;
+  align-items: stretch;
+  margin-top: 50px;
+}
+
+/* Glass-style Cards */
+.future-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+  max-width: 500px;
+  color: #e5eaf0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.future-card:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-5px);
+}
+
+/* Headings */
+.future-card h3 {
+  color: #00c6d7;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Paragraph */
+.future-card p {
+  color: #dbe3ec;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .future-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .future-card {
+    max-width: 100%;
+  }
+
+  .future-header h2 {
+    font-size: 2rem;
+  }
+
+  .future-header p {
+    font-size: 1rem;
+  }
+}
+
+/* ===============================================
+   CALL TO ACTION SECTION
+   =============================================== */
+
+.trade-cta-section {
+  background-color:#002b5b;/* Dark background */
+  color: #fff;
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-content h2 {
+  color: #00c6d7;
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.cta-content p {
+  color: #dbe3ec;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 50px;
+}
+
+/* Button styling */
+.cta-button {
+  display: inline-block;
+  background-color: #00c6d7;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 15px 40px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #00b1c0;
+  box-shadow: 0 8px 25px rgba(0, 198, 215, 0.6);
+  transform: translateY(-3px);
+}
+
+/* Responsive CTA */
+@media (max-width: 768px) {
+  .cta-content h2 {
+    font-size: 2rem;
+  }
+
+  .cta-content p {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    font-size: 1rem;
+    padding: 12px 30px;
+  }
+}
+
+/* ==============================================
+   FOOTER
+   ============================================== */
+.footer {
+  background-color: #000;
+  color: var(--secondary);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.95rem;
+}

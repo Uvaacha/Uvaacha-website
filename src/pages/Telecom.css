@@ -1,0 +1,453 @@
+:root {
+  --primary: #002b5b;
+  --accent: #00c2ff;
+  --background: #f6f8f9;
+  --text: #0f1f38;
+}
+
+/* ============================================================
+   🌍 GLOBAL RESET — Full Coverage & Edge Fix
+   ============================================================ */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--background);
+  overflow-x: hidden !important;
+  overscroll-behavior: none;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* ============================================================
+   BASE STYLING
+   ============================================================ */
+.telecom-wrapper {
+  font-family: "Poppins", sans-serif;
+  background: var(--background);
+  color: var(--text);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.telecom-hero {
+  position: relative;
+  height: calc(100vh + 1px);
+  overflow: hidden;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #000;
+  z-index: 0;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.85);
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  background: rgba(0, 43, 91, 0.4);
+  z-index: 1;
+}
+
+.hero-overlay h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+.hero-overlay p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin-top: 10px;
+  opacity: 0.95;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   INTRO SECTION
+   ============================================================ */
+.telecom-intro {
+  background: linear-gradient(135deg, #002b5b, #004c91);
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.intro-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.intro-content h2 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+.intro-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   FLIP CARD SECTION
+   ============================================================ */
+.telecom-flip-section {
+  text-align: center;
+  padding: 100px 8%;
+  background: var(--background);
+}
+
+.telecom-flip-section h2 {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 50px;
+}
+
+/* GRID */
+.flip-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  justify-items: center;
+}
+
+/* FLIP CARD */
+.flip-card {
+  width: 100%;
+  max-width: 380px;
+  height: 420px;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* FRONT & BACK SIDES */
+.flip-front,
+.flip-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  transition: all 0.5s ease;
+}
+
+/* FRONT CONTENT */
+.flip-front {
+  background: #fff;
+  z-index: 2;
+}
+
+/* ✅ Improved image alignment & animation */
+.flip-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  transition: transform 0.6s ease, filter 0.6s ease;
+  filter: brightness(1.05) contrast(1.05);
+}
+
+/* ✅ Transmission Networks — perfectly centered tower */
+.flip-front img[src*="transmission"] {
+  object-position: center 52%; /* centers tower and glow ring */
+  transform-origin: center center;
+}
+
+/* Slight brightness boost for glow */
+.flip-front img[src*="transmission"]:hover {
+  filter: brightness(1.2) contrast(1.1);
+}
+
+/* Hover for all cards */
+.flip-card:hover .flip-front img {
+  transform: scale(1.05);
+  filter: brightness(1.15) contrast(1.1);
+}
+
+.front-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 45%;
+  background: linear-gradient(to top, rgba(0, 43, 91, 0.85), transparent);
+}
+
+.front-title {
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #fff;
+}
+
+/* ✅ Center text balance improvement */
+.front-title h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.3px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* BACK SIDE */
+.flip-back {
+  background: var(--primary);
+  color: white;
+  opacity: 0;
+  transform: scale(0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px 20px;
+  z-index: 1;
+}
+
+/* HOVER EFFECT */
+.flip-card:hover .flip-front {
+  opacity: 0;
+  transform: scale(0.92);
+}
+
+.flip-card:hover .flip-back {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+  box-shadow: 0 10px 30px rgba(0, 43, 91, 0.25);
+}
+
+.flip-card:hover {
+  transform: translateY(-6px);
+}
+
+/* ============================================================
+   MANAGED SERVICES SECTION
+   ============================================================ */
+.telecom-managed {
+  background: linear-gradient(135deg, #f6f8f9, #ffffff);
+  padding: 120px 8%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.managed-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.managed-text {
+  flex: 1 1 500px;
+  min-width: 320px;
+}
+
+.managed-text h2 {
+  color: var(--primary);
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.managed-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  color: #1c2c45;
+}
+
+.managed-image {
+  flex: 1 1 500px;
+  text-align: center;
+}
+
+.managed-image img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 20px;
+  box-shadow: 0 10px 35px rgba(0, 43, 91, 0.2);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.managed-image img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 15px 40px rgba(0, 43, 91, 0.25);
+}
+
+/* Responsive Fix */
+@media (max-width: 900px) {
+  .managed-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .managed-text {
+    order: 2;
+  }
+
+  .managed-image img {
+    max-width: 90%;
+  }
+}
+
+/* ============================================================
+   CTA SECTION
+   ============================================================ */
+.telecom-cta {
+  background-color: #002b5b;
+  color: #f6f8f9;
+  text-align: center;
+  padding: 120px 20px 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.cta-content h2 {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #00c6d7;
+  margin-bottom: 25px;
+}
+
+.cta-content p {
+  font-size: 1.15rem;
+  margin-bottom: 45px;
+  color: #f6f8f9;
+  line-height: 1.7;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-btn {
+  background: linear-gradient(135deg, #00c6d7 0%, #00a8b8 100%);
+  color: #002b5b;
+  font-weight: 600;
+  border: none;
+  padding: 15px 45px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1.05rem;
+  box-shadow: 0 5px 15px rgba(0, 198, 215, 0.4);
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: linear-gradient(135deg, #00a8b8 0%, #00c6d7 100%);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 198, 215, 0.5);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  width: 100%;
+  background-color: #001f43;
+  color: #cfd6e0;
+  text-align: center;
+  padding: 25px 10px;
+  font-size: 0.9rem;
+  position: relative;
+  bottom: 0;
+  left: 0;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), transparent);
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+@media (max-width: 768px) {
+  .hero-overlay h1 {
+    font-size: 2rem;
+  }
+
+  .telecom-intro h2 {
+    font-size: 1.8rem;
+  }
+
+  .cta-content h2 {
+    font-size: 2rem;
+  }
+
+  .cta-content p {
+    font-size: 1rem;
+  }
+
+  .cta-btn {
+    padding: 12px 35px;
+    font-size: 0.95rem;
+  }
+}
+
+/* ============================================================
+   RIGHT EDGE FIX
+   ============================================================ */
+html,
+body {
+  overflow-x: hidden !important;
+}
+
+section,
+div,
+video,
+img {
+  max-width: 100vw;
+}
