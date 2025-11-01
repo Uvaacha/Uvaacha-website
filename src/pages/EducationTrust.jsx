@@ -99,7 +99,7 @@ function EducationTrust() {
           <div className="tech-grid">
             <div className="tech-card">
               <img
-                src={process.env.PUBLIC_URL + "/education1.jpg"}
+                src={process.env.PUBLIC_URL + "/Education1.jpg"}
                 alt="AI & Coding"
               />
               <h3>AI & Coding</h3>
@@ -111,7 +111,7 @@ function EducationTrust() {
 
             <div className="tech-card">
               <img
-                src={process.env.PUBLIC_URL + "/education2.1.jpg"}
+                src={process.env.PUBLIC_URL + "/Education2.1.jpg"}
                 alt="Hands-on Robotics"
               />
               <h3>Hands-on Robotics</h3>
@@ -124,7 +124,7 @@ function EducationTrust() {
 
             <div className="tech-card">
               <img
-                src={process.env.PUBLIC_URL + "/education3.jpeg"}
+                src={process.env.PUBLIC_URL + "/Education3.jpeg"}
                 alt="Drone Technology"
               />
               <h3>Drone Technology</h3>
@@ -149,7 +149,7 @@ function EducationTrust() {
 
             <div className="tech-card">
               <img
-                src={process.env.PUBLIC_URL + "/education5.jpg"}
+                src={process.env.PUBLIC_URL + "/Education5.jpg"}
                 alt="STEM Innovation Labs"
               />
               <h3>STEM Innovation Labs</h3>
