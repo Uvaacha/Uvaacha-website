@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import "./ImportExport.css";
 
 export default function ImportExport() {
+  useEffect(() => {
+    // Scroll to top on page load
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <div className="importexport-page">
       {/* ================================
@@ -11,7 +16,7 @@ export default function ImportExport() {
       <section
         className="importexport-hero"
         style={{
-          backgroundImage: `url(${process.env.PUBLIC_URL}/Import-hero.jpg)`,
+          backgroundImage: `url(${process.env.PUBLIC_URL}/Import-hero.webp)`,
         }}
       >
         <div className="importexport-overlay">
@@ -47,7 +52,7 @@ export default function ImportExport() {
             transparent and responsible international trade. Our approach is
             rooted in reliability, ethics and precision — empowering both
             established businesses and first-time exporters to succeed in
-            today’s competitive global markets.
+            today's competitive global markets.
           </p>
         </motion.div>
 
@@ -123,8 +128,9 @@ export default function ImportExport() {
             transition={{ type: "spring", stiffness: 200 }}
           >
             <img
-              src={`${process.env.PUBLIC_URL}/Global-Sourcing-Services.jpg`}
+              src={`${process.env.PUBLIC_URL}/Global-Sourcing-Services.webp`}
               alt="Global Sourcing"
+              loading="lazy"
             />
             <h3>Global Sourcing</h3>
             <p>
@@ -140,8 +146,9 @@ export default function ImportExport() {
             transition={{ type: "spring", stiffness: 200 }}
           >
             <img
-              src={`${process.env.PUBLIC_URL}/Warehouse-logistics.jpg`}
+              src={`${process.env.PUBLIC_URL}/Warehouse-logistics.webp`}
               alt="Logistics and Warehousing"
+              loading="lazy"
             />
             <h3>Logistics & Warehousing</h3>
             <p>
@@ -157,12 +164,13 @@ export default function ImportExport() {
             transition={{ type: "spring", stiffness: 200 }}
           >
             <img
-              src={`${process.env.PUBLIC_URL}/contract negotiation.jpg`}
+              src={`${process.env.PUBLIC_URL}/contract negotiation.webp`}
               alt="Contract Negotiation"
+              loading="lazy"
             />
             <h3>Contract Negotiation</h3>
             <p>
-              Our experts facilitate trade agreements with clarity, compliance,
+              Our experts facilitate trade agreements with clarity, compliance
               and precision.
             </p>
           </motion.div>
@@ -174,8 +182,9 @@ export default function ImportExport() {
             transition={{ type: "spring", stiffness: 200 }}
           >
             <img
-              src={`${process.env.PUBLIC_URL}/Market expansion.jpg`}
+              src={`${process.env.PUBLIC_URL}/Market expansion.webp`}
               alt="Market Expansion"
+              loading="lazy"
             />
             <h3>Market Expansion</h3>
             <p>
@@ -192,7 +201,7 @@ export default function ImportExport() {
       <section
         className="future-trade-section"
         style={{
-          backgroundImage: `url(${process.env.PUBLIC_URL}/import1.jpeg)`,
+          backgroundImage: `url(${process.env.PUBLIC_URL}/import1.webp)`,
         }}
       >
         <div className="future-overlay">
@@ -292,4 +301,3 @@ export default function ImportExport() {
     </div>
   );
 }
-

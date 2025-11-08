@@ -18,7 +18,7 @@ export default function AboutUs() {
       <section
         className="about-hero"
         style={{
-          backgroundImage: `url("/About-image1.jpeg")`,
+          backgroundImage: `url("/About-image1.webp")`,
         }}
       >
         <div className="about-hero-overlay">
@@ -55,7 +55,7 @@ export default function AboutUs() {
             </p>
           </div>
           <div className="who-image">
-            <img src="/question.jpg" alt="Who We Are" />
+            <img src="/question.webp" alt="Who We Are" />
           </div>
         </div>
       </section>
@@ -166,7 +166,7 @@ export default function AboutUs() {
       <section
         className="sustainability-section"
         style={{
-          backgroundImage: `url("/Aboutus2.jpg")`,
+          backgroundImage: `url("/Aboutus2.webp")`,
         }}
       >
         <div className="sustainability-overlay">

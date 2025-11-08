@@ -4,32 +4,32 @@ import "./Telecom.css";
 const Telecom = () => {
   const services = [
     {
-      img: "/Anteena.jpg",
+      img: "/Anteena.webp",
       title: "Radio Access Network (RAN)",
       desc: "Delivering high-performance RAN with Open RAN, vRAN and advanced antenna systems for seamless connectivity.",
     },
     {
-      img: "/5g.jpeg",
+      img: "/5g.webp",
       title: "5G Core (5GC)",
       desc: "A cloud-native, secure and ultra-scalable 5G Core ensuring low latency and new digital possibilities.",
     },
     {
-      img: "/transmission.jpeg",
+      img: "/transmission.webp",
       title: "Transmission Networks",
       desc: "Our transport networks ensure speed, capacity and reliability across RAN, Core and Cloud.",
     },
     {
-      img: "/AI.jpg",
+      img: "/AI.webp",
       title: "Automation & AI",
       desc: "AI-driven automation and analytics for predictive, intelligent and efficient telecom operations.",
     },
     {
-      img: "/cloud.jpg",
+      img: "/cloud.webp",
       title: "Cloud in Telecom",
       desc: "Empowering telecom with agility, scalability and edge innovations through cloud adoption.",
     },
     {
-      img: "/OBS.jpg",
+      img: "/OBS.webp",
       title: "OSS/BSS Systems",
       desc: "Integrated OSS/BSS for seamless network operations, real-time insights and improved customer experiences.",
     },
@@ -38,6 +38,32 @@ const Telecom = () => {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
+    // Parallax scroll effect for fixed hero video
+    const handleScroll = () => {
+      const heroSection = document.querySelector(".telecom-hero");
+      const heroOverlay = document.querySelector(".hero-overlay");
+      
+      if (heroSection && heroOverlay) {
+        const scrolled = window.pageYOffset;
+        const heroHeight = heroSection.offsetHeight;
+        
+        // Calculate opacity fade as user scrolls
+        const fadeStart = heroHeight * 0.3;
+        const fadeEnd = heroHeight * 0.9;
+        
+        if (scrolled > fadeStart && scrolled < fadeEnd) {
+          const fadeProgress = (scrolled - fadeStart) / (fadeEnd - fadeStart);
+          const opacity = 1 - fadeProgress;
+          heroOverlay.style.opacity = opacity;
+        } else if (scrolled >= fadeEnd) {
+          heroOverlay.style.opacity = "0";
+        } else {
+          heroOverlay.style.opacity = "1";
+        }
+      }
+    };
+
+    // Intersection Observer for reveal animations
     const elements = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver(
       (entries, obs) => {
@@ -52,24 +78,36 @@ const Telecom = () => {
     );
 
     elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    
+    // Add scroll listener for parallax
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    
+    // Initial call
+    handleScroll();
+    
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
     <div className="telecom-wrapper">
-      {/* ================= HERO SECTION ================= */}
+      {/* ================= HERO SECTION - FIXED VIDEO ================= */}
       <section className="telecom-hero reveal">
-        <video
-          className="hero-video"
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster="/hero-poster.jpg"
-          aria-hidden
-        >
-          <source src="/net-1.mp4" type="video/mp4" />
-        </video>
+        <div className="hero-video-container">
+          <video
+            className="hero-video"
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/hero-poster.jpg"
+            aria-hidden
+          >
+            <source src="/net-1.webm" type="video/webm" />
+          </video>
+        </div>
         <div className="hero-overlay">
           <h1>Smarter Connectivity for a Digital Future</h1>
           <p>
@@ -137,7 +175,7 @@ const Telecom = () => {
           </div>
           <div className="managed-image">
             <img
-              src="/manged service.JPG"
+              src="/manged service.webp"
               alt="Managed Services"
               loading="lazy"
             />
@@ -156,7 +194,7 @@ const Telecom = () => {
           </p>
           {/* ✅ Instant redirect without scroll animation */}
           <a href="/contact" className="cta-btn">
-            Let’s Collaborate
+            Let's Collaborate
           </a>
         </div>
       </section>

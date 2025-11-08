@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   FaFlask,
@@ -9,7 +9,7 @@ import {
   FaRegCheckCircle,
   FaSprayCan,
   FaVial,
-} from "react-icons/fa"; // ✅ Correct source (no fa6)
+} from "react-icons/fa";
 import { GiSoap, GiPerfumeBottle, GiChemicalDrop } from "react-icons/gi";
 import "./Manufacturing.css";
 
@@ -26,6 +26,11 @@ const listVariants = {
 };
 
 export default function Manufacturing() {
+  useEffect(() => {
+    // Scroll to top on page load
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   const cosmeticIcons = [<FaFlask />, <FaLeaf />, <FaRobot />, <FaRegCheckCircle />];
   const perfumeIcons = [<GiPerfumeBottle />, <FaIndustry />, <FaSprayCan />, <FaVial />];
   const detergentIcons = [<GiSoap />, <GiChemicalDrop />, <FaFlask />, <FaGlobe />];
@@ -34,18 +39,20 @@ export default function Manufacturing() {
   return (
     <div className="manufacturing-page">
       {/* ==============================
-          HERO SECTION
+          HERO SECTION WITH FIXED VIDEO
       =============================== */}
-      <section className="manufacturing-hero">
+      <div className="hero-video-container">
         <video
           className="hero-video"
-          src="/Manufacture-Hero-1.mp4"
+          src="/Manufacture-Hero-1.webm"
           autoPlay
           loop
           muted
           playsInline
         ></video>
+      </div>
 
+      <section className="manufacturing-hero">
         <div className="hero-overlay">
           <motion.div
             className="hero-text"
@@ -149,7 +156,7 @@ export default function Manufacturing() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <img src="/Mnaufacture5.jpg" alt="Cosmetics Manufacturing" loading="lazy" />
+            <img src="/Mnaufacture5.webp" alt="Cosmetics Manufacturing" loading="lazy" />
           </motion.div>
         </div>
       </section>
@@ -199,7 +206,7 @@ export default function Manufacturing() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <img src="/Mnaufacture6.jpg" alt="Perfume Manufacturing" loading="lazy" />
+            <img src="/Mnaufacture6.webp" alt="Perfume Manufacturing" loading="lazy" />
           </motion.div>
         </div>
       </section>
@@ -249,7 +256,7 @@ export default function Manufacturing() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <img src="/Mnaufacture7.jpg" alt="Detergent Manufacturing" loading="lazy" />
+            <img src="/Mnaufacture7.webp" alt="Detergent Manufacturing" loading="lazy" />
           </motion.div>
         </div>
       </section>
@@ -272,7 +279,7 @@ export default function Manufacturing() {
               manufacturing through AI integration, digital twins and smart
               analytics. Our facilities are built on sustainability, automation,
               and data-driven innovation — creating precision-engineered
-              products that shape tomorrow’s industries.
+              products that shape tomorrow's industries.
             </p>
 
             <motion.ul
@@ -301,7 +308,7 @@ export default function Manufacturing() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <img src="/Mnaufacture8.jpg" alt="The Future of Manufacturing" loading="lazy" />
+            <img src="/Mnaufacture8.webp" alt="The Future of Manufacturing" loading="lazy" />
           </motion.div>
         </div>
       </section>
@@ -315,9 +322,9 @@ export default function Manufacturing() {
           transition={{ duration: 1 }}
           viewport={{ once: true }}
         >
-          <h2>Innovating the future of manufacturing</h2>
+          <h2>Innovating the Future of Manufacturing</h2>
           <p>
-            With sustainability, automation and intelligence at the core — we’re
+            With sustainability, automation and intelligence at the core — we're
             shaping smarter, more efficient industries.
           </p>
           <a href="/contact" className="cta-button">

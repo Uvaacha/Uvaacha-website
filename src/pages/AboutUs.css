@@ -66,6 +66,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 2;
 }
 
 .who-container {
@@ -116,6 +118,8 @@
   color: #f6f8f9;
   text-align: center;
   padding: 100px 40px;
+  position: relative;
+  z-index: 2;
 }
 
 .mission-vision h2 {
@@ -126,36 +130,40 @@
 }
 
 .mission-container {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 40px;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
+  justify-items: center;
 }
 
 .mission-card {
   background-color: #013765;
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  flex: 1 1 300px;
-  padding: 30px 25px;
+  width: 100%;
+  max-width: 420px;
+  padding: 35px 30px;
   text-align: left;
   color: #f6f8f9;
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
 }
 
 .mission-card h3 {
   color: #00c6d7;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .mission-card p {
-  font-size: 1rem;
+  font-size: 1.05rem;
   line-height: 1.8;
   color: #e2e8f0;
+  flex-grow: 1;
 }
 
 .mission-card ul {
@@ -163,29 +171,12 @@
   margin-left: 20px;
   color: #f6f8f9;
   line-height: 1.8;
+  padding-left: 0;
 }
 
 .mission-card li {
-  font-size: 1rem;
-  margin-bottom: 6px;
-}
-
-/* ===============================
-   RESPONSIVE DESIGN
-   =============================== */
-@media (max-width: 992px) {
-  .who-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .mission-container {
-    flex-direction: column;
-  }
-
-  .mission-card {
-    text-align: center;
-  }
+  font-size: 1.05rem;
+  margin-bottom: 10px;
 }
 
 /* ===============================
@@ -196,21 +187,24 @@
   color: #002b5b;
   text-align: center;
   padding: 100px 40px;
+  position: relative;
+  z-index: 2;
 }
 
 .industries h2 {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   font-weight: 700;
-  margin-bottom: 60px;
+  margin-bottom: 70px;
   color: #002b5b;
+  line-height: 1.3;
 }
 
 .industries-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 45px;
   justify-items: center;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -218,10 +212,14 @@
   background-color: #ffffff;
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  padding: 40px 25px;
+  padding: 40px 30px;
   text-align: left;
-  max-width: 370px;
+  width: 100%;
+  max-width: 400px;
   transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
 }
 
 .industry-card:hover {
@@ -230,37 +228,24 @@
 }
 
 .industry-icon {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   display: block;
   margin-bottom: 20px;
 }
 
 .industry-card h3 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 700;
   margin-bottom: 15px;
   color: #002b5b;
+  line-height: 1.4;
 }
 
 .industry-card p {
-  font-size: 1rem;
+  font-size: 1.05rem;
   line-height: 1.7;
   color: #334155;
-}
-
-/* Responsive layout */
-@media (max-width: 768px) {
-  .industries h2 {
-    font-size: 1.8rem;
-  }
-
-  .industry-card {
-    text-align: center;
-  }
-
-  .industry-icon {
-    margin: 0 auto 20px;
-  }
+  flex-grow: 1;
 }
 
 /* ===============================
@@ -276,6 +261,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 
 .sustainability-overlay {
@@ -310,17 +296,6 @@
   color: #f6f8f9;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .sustainability-content h2 {
-    font-size: 1.8rem;
-  }
-
-  .sustainability-content p {
-    font-size: 1rem;
-  }
-}
-
 /* ===============================
    FINAL CTA SECTION
    =============================== */
@@ -333,6 +308,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 2;
 }
 
 .final-cta h2 {
@@ -359,8 +336,195 @@
   box-shadow: 0 0 35px rgba(0, 198, 215, 0.7);
 }
 
-/* Responsive fix */
+/* ==============================================
+   FOOTER
+   ============================================== */
+.footer {
+  background-color: #000;
+  color: #f6f8f9;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.95rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* ===============================
+   RESPONSIVE DESIGN WITH MOBILE PARALLAX
+   =============================== */
+@media (max-width: 992px) {
+  .who-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .mission-container {
+    flex-direction: column;
+  }
+
+  .mission-card {
+    text-align: center;
+  }
+}
+
+/* Mobile Parallax (≤768px) */
 @media (max-width: 768px) {
+  /* Hero Section - with parallax effect */
+  .about-hero {
+    position: fixed; /* Fixed for parallax */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-attachment: scroll;
+    z-index: 0;
+  }
+
+  .about-hero-overlay {
+    position: fixed;
+    z-index: 1;
+  }
+
+  .about-hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 1.5rem;
+  }
+
+  .about-hero-content h1 {
+    font-size: 2rem;
+    line-height: 1.4;
+  }
+
+  .about-hero-content span {
+    font-size: 1rem;
+    margin-top: 12px;
+  }
+
+  /* Who We Are - slides over hero */
+  .who-we-are {
+    padding: 60px 20px;
+    position: relative;
+    z-index: 3;
+    margin-top: 100vh; /* Start after hero */
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .who-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .who-text p {
+    font-size: 1rem;
+  }
+
+  .who-image img {
+    max-width: 100%;
+  }
+
+  /* Mission Vision */
+  .mission-vision {
+    padding: 60px 20px;
+    position: relative;
+    z-index: 3;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .mission-vision h2 {
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+  }
+
+  .mission-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .mission-card {
+    max-width: 100%;
+    padding: 30px 25px;
+    min-height: auto;
+    text-align: center;
+  }
+
+  .mission-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+
+  .mission-card p,
+  .mission-card li {
+    font-size: 1rem;
+  }
+
+  .mission-card ul {
+    text-align: left;
+    max-width: 300px;
+    margin: 0 auto;
+    padding-left: 20px;
+  }
+
+  /* Industries */
+  .industries {
+    padding: 60px 20px;
+    position: relative;
+    z-index: 3;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .industries h2 {
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+  }
+
+  .industries-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .industry-card {
+    text-align: center;
+    max-width: 100%;
+    min-height: auto;
+    padding: 35px 25px;
+  }
+
+  .industry-icon {
+    margin: 0 auto 20px;
+    font-size: 2.2rem;
+  }
+
+  .industry-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .industry-card p {
+    font-size: 1rem;
+  }
+
+  /* Sustainability */
+  .sustainability-section {
+    background-attachment: scroll;
+    position: relative;
+    z-index: 3;
+  }
+
+  .sustainability-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .sustainability-content p {
+    font-size: 1rem;
+  }
+
+  /* Final CTA */
+  .final-cta {
+    padding: 60px 20px;
+    position: relative;
+    z-index: 3;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+  }
+
   .final-cta h2 {
     font-size: 1.4rem;
   }
@@ -369,16 +533,149 @@
     font-size: 1rem;
     padding: 12px 30px;
   }
+
+  /* Footer */
+  .footer {
+    position: relative;
+    z-index: 3;
+  }
 }
 
-/* ==============================================
-   FOOTER
-   ============================================== */
-.footer {
-  background-color: #000;
-  color: var(--secondary);
-  text-align: center;
-  padding: 20px 0;
-  font-size: 0.95rem;
+/* Small Mobile (≤480px) */
+@media (max-width: 480px) {
+  .about-hero-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .about-hero-content span {
+    font-size: 0.95rem;
+  }
+
+  .who-we-are {
+    padding: 50px 15px;
+  }
+
+  .who-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .who-text p {
+    font-size: 0.95rem;
+  }
+
+  .mission-vision {
+    padding: 50px 15px;
+  }
+
+  .mission-vision h2 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+
+  .mission-card {
+    padding: 25px 20px;
+  }
+
+  .mission-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .mission-card p,
+  .mission-card li {
+    font-size: 0.95rem;
+  }
+
+  .industries {
+    padding: 50px 15px;
+  }
+
+  .industries h2 {
+    font-size: 1.5rem;
+    margin-bottom: 35px;
+  }
+
+  .industries-grid {
+    gap: 25px;
+  }
+
+  .industry-card {
+    padding: 30px 20px;
+  }
+
+  .industry-icon {
+    font-size: 2rem;
+  }
+
+  .industry-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .industry-card p {
+    font-size: 0.95rem;
+  }
+
+  .sustainability-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .sustainability-content p {
+    font-size: 0.95rem;
+  }
+
+  .final-cta {
+    padding: 50px 15px;
+  }
+
+  .final-cta h2 {
+    font-size: 1.2rem;
+  }
+
+  .cta-button {
+    font-size: 0.95rem;
+    padding: 11px 26px;
+  }
 }
 
+/* Very Small Mobile (≤360px) */
+@media (max-width: 360px) {
+  .about-hero-content h1 {
+    font-size: 1.4rem;
+  }
+
+  .about-hero-content span {
+    font-size: 0.9rem;
+  }
+
+  .who-text h2 {
+    font-size: 1.3rem;
+  }
+
+  .who-text p {
+    font-size: 0.9rem;
+  }
+
+  .mission-vision h2 {
+    font-size: 1.3rem;
+  }
+
+  .industries h2 {
+    font-size: 1.3rem;
+  }
+
+  .sustainability-content h2 {
+    font-size: 1.3rem;
+  }
+
+  .sustainability-content p {
+    font-size: 0.9rem;
+  }
+
+  .final-cta h2 {
+    font-size: 1.1rem;
+  }
+
+  .cta-button {
+    font-size: 0.9rem;
+    padding: 10px 24px;
+  }
+}

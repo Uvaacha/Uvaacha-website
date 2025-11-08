@@ -16,7 +16,7 @@ export default function Careers() {
         className="hero"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(7, 7, 7, 0.6), rgba(17, 17, 18, 0.7)), url('/carrer1.jpg')",
+            "linear-gradient(rgba(9, 9, 9, 0.6), rgba(20, 5, 5, 0.7)), url('/carrer1.webp')",
         }}
       >
         <div className="hero-overlay">
