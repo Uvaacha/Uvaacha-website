@@ -24,6 +24,20 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "reactSnap": {
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ],
+    "inlineCss": true,
+    "minifyHtml": {
+      "collapseWhitespace": true,
+      "removeComments": false
+    },
+    "skipThirdPartyRequests": true,
+    "cacheAjaxRequests": false,
+    "preloadResources": true
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
