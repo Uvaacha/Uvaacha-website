@@ -41,15 +41,24 @@ body {
 }
 
 /* ============================================================
-   HERO SECTION
+   HERO SECTION — FIXED VIDEO WITH PARALLAX EFFECT
    ============================================================ */
 .telecom-hero {
   position: relative;
-  height: calc(100vh + 1px);
-  overflow: hidden;
+  height: 100vh;
   margin: 0 !important;
   padding: 0 !important;
-  background: #000;
+  z-index: 1;
+}
+
+/* Fixed Video Container */
+.hero-video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
   z-index: 0;
 }
 
@@ -75,7 +84,8 @@ body {
   text-align: center;
   color: white;
   background: rgba(0, 43, 91, 0.4);
-  z-index: 1;
+  z-index: 2;
+  transition: opacity 0.3s ease;
 }
 
 .hero-overlay h1 {
@@ -93,13 +103,17 @@ body {
 }
 
 /* ============================================================
-   INTRO SECTION
+   INTRO SECTION — Slides over video
    ============================================================ */
 .telecom-intro {
   background: linear-gradient(135deg, #002b5b, #004c91);
   color: white;
   text-align: center;
   padding: 100px 20px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+  margin-top: 0; /* Remove any gap */
 }
 
 .intro-content {
@@ -122,29 +136,35 @@ body {
    ============================================================ */
 .telecom-flip-section {
   text-align: center;
-  padding: 100px 8%;
+  padding: 100px 6%;
   background: var(--background);
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
 }
 
 .telecom-flip-section h2 {
-  font-size: 2rem;
+  font-size: 2.4rem;
   color: var(--primary);
-  margin-bottom: 50px;
+  margin-bottom: 60px;
+  font-weight: 700;
 }
 
 /* GRID */
 .flip-card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 50px;
   justify-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 /* FLIP CARD */
 .flip-card {
   width: 100%;
-  max-width: 380px;
-  height: 420px;
+  max-width: 400px;
+  height: 440px;
   border-radius: 16px;
   position: relative;
   overflow: hidden;
@@ -258,7 +278,7 @@ body {
 }
 
 /* ============================================================
-   MANAGED SERVICES SECTION
+   MANAGED SERVICES SECTION — IMPROVED DESKTOP ALIGNMENT
    ============================================================ */
 .telecom-managed {
   background: linear-gradient(135deg, #f6f8f9, #ffffff);
@@ -267,69 +287,236 @@ body {
   overflow: hidden;
   position: relative;
   box-sizing: border-box;
+  z-index: 2;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
 }
 
 .managed-content {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 80px;
-  flex-wrap: wrap;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   text-align: left;
+  width: 100%;
 }
 
 .managed-text {
-  flex: 1 1 500px;
-  min-width: 320px;
+  flex: 1 1 50%;
+  min-width: 0;
 }
 
 .managed-text h2 {
   color: var(--primary);
-  font-size: 2.2rem;
-  margin-bottom: 20px;
+  font-size: 2.4rem;
+  margin-bottom: 30px;
+  line-height: 1.3;
+  font-weight: 700;
 }
 
 .managed-text p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  margin-bottom: 15px;
+  font-size: 1.15rem;
+  line-height: 1.9;
+  margin-bottom: 20px;
   color: #1c2c45;
 }
 
 .managed-image {
-  flex: 1 1 500px;
-  text-align: center;
+  flex: 1 1 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
 }
 
 .managed-image img {
   width: 100%;
   max-width: 600px;
+  height: auto;
   border-radius: 20px;
-  box-shadow: 0 10px 35px rgba(0, 43, 91, 0.2);
+  box-shadow: 0 15px 45px rgba(0, 43, 91, 0.25);
   transition: transform 0.5s ease, box-shadow 0.5s ease;
+  display: block;
 }
 
 .managed-image img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 15px 40px rgba(0, 43, 91, 0.25);
+  transform: scale(1.05);
+  box-shadow: 0 20px 55px rgba(0, 43, 91, 0.3);
 }
 
-/* Responsive Fix */
+/* Desktop-specific alignment */
+@media (min-width: 901px) {
+  .managed-content {
+    align-items: center;
+    gap: 80px;
+  }
+  
+  .managed-text {
+    padding-right: 0;
+  }
+}
+
+/* Responsive Fix - Mobile with Parallax */
 @media (max-width: 900px) {
+  /* Hero Section - Fixed video with parallax effect */
+  .telecom-hero {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .hero-video-container {
+    position: fixed;
+    z-index: 0;
+  }
+  
+  .hero-overlay {
+    position: fixed;
+    z-index: 1;
+  }
+  
+  .hero-overlay h1 {
+    font-size: 2rem;
+    padding: 0 20px;
+    line-height: 1.3;
+  }
+  
+  .hero-overlay p {
+    font-size: 1rem;
+    padding: 0 20px;
+    line-height: 1.6;
+  }
+  
+  /* Intro Section - slides over hero seamlessly */
+  .telecom-intro {
+    padding: 80px 20px;
+    position: relative;
+    z-index: 3;
+    margin-top: 100vh; /* Start exactly after hero */
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.15);
+    /* Ensure no transparent gaps */
+    background: linear-gradient(135deg, #002b5b, #004c91);
+  }
+  
+  .intro-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .intro-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  
+  /* Flip Card Section - seamless connection */
+  .telecom-flip-section {
+    padding: 80px 5%;
+    position: relative;
+    z-index: 3;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
+    margin-top: 0; /* No gap between sections */
+    background: var(--background); /* Solid background */
+  }
+  
+  .telecom-flip-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 50px;
+  }
+  
+  .flip-card-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding: 0;
+  }
+  
+  .flip-card {
+    max-width: 100%;
+  }
+  
+  /* Managed Services Section - seamless connection */
+  .telecom-managed {
+    padding: 80px 6%;
+    position: relative;
+    z-index: 3;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
+    margin-top: 0; /* No gap */
+    background: linear-gradient(135deg, #f6f8f9, #ffffff); /* Solid background */
+  }
+  
   .managed-content {
     flex-direction: column;
     text-align: center;
-    gap: 40px;
+    gap: 50px;
   }
 
   .managed-text {
+    order: 1;
+    max-width: 100%;
+    padding-right: 0;
+  }
+  
+  .managed-text h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+  }
+  
+  .managed-text p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+  
+  .managed-image {
     order: 2;
+    width: 100%;
   }
 
   .managed-image img {
-    max-width: 90%;
+    max-width: 100%;
+  }
+  
+  /* CTA Section - seamless connection */
+  .telecom-cta {
+    padding: 80px 20px 70px;
+    position: relative;
+    z-index: 3;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.15);
+    margin-top: 0; /* No gap */
+    background-color: #002b5b; /* Solid background */
+  }
+  
+  .cta-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  .cta-content p {
+    font-size: 1rem;
+    margin-bottom: 35px;
+  }
+
+  .cta-btn {
+    padding: 12px 35px;
+    font-size: 0.95rem;
+  }
+  
+  /* Footer - seamless connection */
+  .footer {
+    position: relative;
+    z-index: 3;
+    margin-top: 0; /* No gap */
+    background-color: #001f43; /* Solid background */
+  }
+  
+  /* Ensure smooth scrolling on mobile */
+  .telecom-wrapper {
+    -webkit-overflow-scrolling: touch;
+    background: var(--background); /* Fallback background */
   }
 }
 
@@ -343,6 +530,8 @@ body {
   padding: 120px 20px 100px;
   position: relative;
   overflow: hidden;
+  z-index: 2;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
 }
 
 .cta-content {
@@ -378,6 +567,8 @@ body {
   font-size: 1.05rem;
   box-shadow: 0 5px 15px rgba(0, 198, 215, 0.4);
   transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .cta-btn:hover {
@@ -399,6 +590,7 @@ body {
   position: relative;
   bottom: 0;
   left: 0;
+  z-index: 2;
 }
 
 .footer::before {
@@ -416,24 +608,186 @@ body {
    ============================================================ */
 @media (max-width: 768px) {
   .hero-overlay h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    padding: 0 15px;
+  }
+  
+  .hero-overlay p {
+    font-size: 0.95rem;
+    padding: 0 15px;
+  }
+
+  .telecom-intro {
+    padding: 70px 15px;
   }
 
   .telecom-intro h2 {
+    font-size: 1.7rem;
+  }
+  
+  .intro-content p {
+    font-size: 0.95rem;
+  }
+  
+  .telecom-flip-section {
+    padding: 70px 4%;
+  }
+  
+  .telecom-flip-section h2 {
+    font-size: 1.7rem;
+    margin-bottom: 40px;
+  }
+  
+  .flip-card {
+    max-width: 100%;
+    height: 400px;
+  }
+  
+  .telecom-managed {
+    padding: 70px 5%;
+  }
+  
+  .managed-text h2 {
     font-size: 1.8rem;
   }
-
-  .cta-content h2 {
-    font-size: 2rem;
-  }
-
-  .cta-content p {
+  
+  .managed-text p {
     font-size: 1rem;
   }
 
-  .cta-btn {
-    padding: 12px 35px;
+  .telecom-cta {
+    padding: 70px 15px 60px;
+  }
+
+  .cta-content h2 {
+    font-size: 1.7rem;
+  }
+
+  .cta-content p {
     font-size: 0.95rem;
+  }
+
+  .cta-btn {
+    padding: 11px 32px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .hero-overlay h1 {
+    font-size: 1.5rem;
+    padding: 0 12px;
+  }
+  
+  .hero-overlay p {
+    font-size: 0.9rem;
+    padding: 0 12px;
+  }
+  
+  .telecom-intro {
+    padding: 60px 12px;
+  }
+  
+  .intro-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+  
+  .intro-content p {
+    font-size: 0.9rem;
+  }
+  
+  .telecom-flip-section {
+    padding: 60px 3%;
+  }
+  
+  .telecom-flip-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 35px;
+  }
+  
+  .flip-card {
+    height: 380px;
+  }
+  
+  .flip-card-grid {
+    gap: 30px;
+  }
+  
+  .telecom-managed {
+    padding: 60px 4%;
+  }
+  
+  .managed-text h2 {
+    font-size: 1.6rem;
+  }
+  
+  .managed-text p {
+    font-size: 0.95rem;
+    margin-bottom: 18px;
+  }
+  
+  .telecom-cta {
+    padding: 60px 12px 55px;
+  }
+  
+  .cta-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 18px;
+  }
+  
+  .cta-content p {
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+  }
+  
+  .cta-btn {
+    padding: 10px 28px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Very small devices */
+@media (max-width: 360px) {
+  .hero-overlay h1 {
+    font-size: 1.3rem;
+  }
+  
+  .hero-overlay p {
+    font-size: 0.85rem;
+  }
+  
+  .intro-content h2 {
+    font-size: 1.3rem;
+  }
+  
+  .intro-content p {
+    font-size: 0.85rem;
+  }
+  
+  .telecom-flip-section h2 {
+    font-size: 1.3rem;
+  }
+  
+  .flip-card {
+    height: 360px;
+  }
+  
+  .managed-text h2 {
+    font-size: 1.4rem;
+  }
+  
+  .managed-text p {
+    font-size: 0.9rem;
+  }
+  
+  .cta-content h2 {
+    font-size: 1.3rem;
+  }
+  
+  .cta-content p {
+    font-size: 0.85rem;
   }
 }
 

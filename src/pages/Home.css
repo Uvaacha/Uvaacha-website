@@ -54,6 +54,28 @@
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
+/* ---------- RESPONSIVE HERO ---------- */
+@media (max-width: 768px) {
+  .home-hero {
+    height: 90vh;
+  }
+
+  .hero-content {
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 15px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+}
+
 /* ---------- SECTION 2.1: FUTURE PROOFING (WHITE THEME) ---------- */
 .future-section.white-theme {
   position: relative;
@@ -116,26 +138,146 @@
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
-/* ---------- RESPONSIVE ---------- */
+/* ---------- MOBILE FUTURE PROOFING (FINAL FIXED) ---------- */
 @media (max-width: 992px) {
+  .future-section.white-theme {
+    padding: 60px 20px;
+    background-color: #fff;
+  }
+
   .future-container {
-    flex-direction: column-reverse;
+    display: flex;
+    flex-direction: column; /* ✅ Image first, then text */
+    align-items: center;
+    justify-content: flex-start;
     text-align: center;
+    width: 100%;
+    gap: 40px;
+  }
+
+  .future-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .future-image img {
+    width: 100%;
+    max-width: 100%;
+    height: auto; /* ✅ Allow full image height */
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .future-text {
+    width: 100%;
+    padding: 0 10px;
+    flex: none;
   }
 
   .future-text h2 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    line-height: 1.4;
+    color: #002b5b;
+    margin-bottom: 1rem;
+    word-break: break-word;
   }
 
   .future-text p {
     font-size: 1rem;
+    line-height: 1.7;
+    color: #444;
+    max-width: 100%;
+  }
+}
+
+/* ---------- EXTRA SMALL SCREENS (Phones under 480px) ---------- */
+@media (max-width: 480px) {
+  .future-section.white-theme {
+    padding: 40px 15px;
+  }
+
+  .future-text h2 {
+    font-size: 1.4rem;
+  }
+
+  .future-text p {
+    font-size: 0.95rem;
   }
 
   .future-image img {
-    max-width: 100%;
-    height: auto;
+    border-radius: 14px;
   }
 }
+
+/* ---------- ULTRA-SMALL SCREENS (≤ 360 px) — FUTURE-PROOFING SECTION ---------- */
+@media (max-width: 360px) {
+  .future-section.white-theme {
+    padding: 40px 12px !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    background-color: #fff;
+  }
+
+  .future-container {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    transform: none !important;
+    overflow: visible !important;
+  }
+
+  .future-image {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin-bottom: 25px !important;
+  }
+
+  .future-image img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important; /* ✅ Prevents cropping */
+    border-radius: 14px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .future-text {
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    text-align: center !important;
+    padding: 0 8px !important;
+  }
+
+  .future-text h2 {
+    font-size: 1.25rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.8rem !important;
+    word-break: break-word !important;
+    color: #002b5b !important;
+  }
+
+  .future-text p {
+    font-size: 0.9rem !important;
+    line-height: 1.7 !important;
+    color: #444 !important;
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+    white-space: normal !important;
+    padding-bottom: 10px !important; /* ✅ Ensures last line visible */
+    margin-bottom: 0 !important;
+  }
+
+  /* Allow page to grow normally */
+  .home-page {
+    overflow-y: visible !important;
+  }
+}
+
 
 /* ===============================
    🌍 SECTION 2.2 — 360° VALUE (IMAGE IN JSX)
@@ -201,26 +343,124 @@
   max-width: 600px;
 }
 
-/* ---------- RESPONSIVE ---------- */
+/* ---------- FINAL FIX: 360° VALUE (FULL MOBILE COVERAGE) ---------- */
 @media (max-width: 992px) {
+  .value-section-alt {
+    background: linear-gradient(135deg, #001a3d 0%, #002b5b 100%);
+    padding: 60px 20px;
+    color: #f6f8f9;
+  }
+
   .value-container-alt {
-    flex-direction: column;
+    display: block; /* ✅ Remove flex to allow full auto height */
+    width: 100%;
+    text-align: center;
+  }
+
+  .value-image-alt {
+    width: 100%;
+    margin-bottom: 35px;
+  }
+
+  .value-image-alt img {
+    display: block;
+    width: 100%;
+    height: auto; /* ✅ Ensures full image visible */
+    max-width: 100%;
+    object-fit: contain; /* ✅ Prevents image crop */
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  .value-text-alt {
+    width: 100%;
+    padding: 0 15px;
     text-align: center;
   }
 
   .value-text-alt h2 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    line-height: 1.4;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    word-break: break-word;
   }
 
   .value-text-alt p {
     font-size: 1rem;
+    line-height: 1.8;
+    color: #d6e2f0;
+    margin: 0 auto;
+    max-width: 95%;
+  }
+}
+
+/* ---------- EXTRA SMALL SCREENS (Phones under 480px) ---------- */
+@media (max-width: 480px) {
+  .value-section-alt {
+    padding: 40px 15px;
+  }
+
+  .value-text-alt h2 {
+    font-size: 1.4rem;
+  }
+
+  .value-text-alt p {
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
 
   .value-image-alt img {
-    max-width: 100%;
-    height: auto;
+    border-radius: 12px;
   }
 }
+
+/* ---------- ULTRA-SMALL SCREENS (Phones ≤ 360px, e.g. iPhone SE) ---------- */
+@media (max-width: 360px) {
+  .value-section-alt {
+    padding: 40px 12px !important;
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+
+  .value-container-alt {
+    display: block !important;
+    height: auto !important;
+    transform: none !important;
+    overflow: visible !important;
+  }
+
+  .value-text-alt {
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    padding-bottom: 20px !important;
+  }
+
+  .value-text-alt h2 {
+    font-size: 1.25rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.8rem !important;
+    word-break: break-word !important;
+  }
+
+  .value-text-alt p {
+    font-size: 0.9rem !important;
+    line-height: 1.8 !important;
+    height: auto !important;
+    display: block !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* ✅ Ensures text not clipped by any motion or background constraints */
+  .home-page {
+    overflow-y: visible !important;
+  }
+}
+
 
 /* ===============================
    🌍 SECTION 2.3 — REDEFINING PERFORMANCE
@@ -285,26 +525,144 @@
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
 }
 
-/* ---------- RESPONSIVE ---------- */
+/* ---------- MOBILE PERFORMANCE (FINAL POLISHED WITH PADDING FIX) ---------- */
 @media (max-width: 992px) {
+  .performance-section {
+    padding: 60px 24px; /* ✅ Added side padding for breathing room */
+    background-color: #fff;
+  }
+
   .performance-container {
-    flex-direction: column;
+    display: flex;
+    flex-direction: column; /* ✅ Image first, then text */
+    align-items: center;
+    justify-content: flex-start;
     text-align: center;
+    width: 100%;
+    gap: 45px;
+  }
+
+  .performance-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 8px; /* ✅ Gentle padding inside image container */
+  }
+
+  .performance-image img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .performance-text {
+    width: 100%;
+    padding: 0 10px;
+    flex: none;
   }
 
   .performance-text h2 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    line-height: 1.4;
+    color: #002b5b;
+    margin-bottom: 1rem;
+    word-break: break-word;
   }
 
   .performance-text p {
     font-size: 1rem;
+    line-height: 1.7;
+    color: #444;
+    max-width: 95%;
+    margin: 0 auto;
+  }
+}
+
+/* ---------- EXTRA SMALL SCREENS (Phones under 480px) ---------- */
+@media (max-width: 480px) {
+  .performance-section {
+    padding: 45px 18px;
+  }
+
+  .performance-text h2 {
+    font-size: 1.35rem;
+  }
+
+  .performance-text p {
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
 
   .performance-image img {
-    max-width: 100%;
-    height: auto;
+    border-radius: 14px;
   }
 }
+
+/* ---------- ULTRA-SMALL SCREENS (≤ 360 px) — PERFORMANCE SECTION (FINAL POLISH) ---------- */
+@media (max-width: 360px) {
+  .performance-section {
+    padding: 45px 0 !important; /* edge-to-edge image; padding moved inside text */
+    background-color: #fff;
+    overflow: visible !important;
+  }
+
+  .performance-container {
+    display: flex !important;
+    flex-direction: column !important; /* image → text */
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 30px !important;
+    width: 100% !important;
+  }
+
+  /* ✅ Make image truly full width */
+  .performance-image {
+    width: 100vw !important; /* extend to viewport width */
+    margin-left: calc(-50vw + 50%) !important; /* center it properly */
+  }
+
+  .performance-image img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important; /* fills the full width visually */
+    border-radius: 0 !important; /* edge-to-edge look */
+    box-shadow: none !important; /* remove shadow touching edges */
+  }
+
+  /* ✅ Comfortable breathing space for text */
+  .performance-text {
+    width: 100% !important;
+    padding: 0 18px !important; /* give room on both sides */
+    text-align: center !important;
+    overflow: visible !important;
+  }
+
+  .performance-text h2 {
+    font-size: 1.25rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.8rem !important;
+    word-break: break-word !important;
+    color: #002b5b !important;
+  }
+
+  .performance-text p {
+    font-size: 0.9rem !important;
+    line-height: 1.7 !important;
+    color: #444 !important;
+    max-width: 95% !important;
+    margin: 0 auto !important;
+    padding-bottom: 12px !important;
+  }
+
+  .home-page {
+    overflow-y: visible !important;
+  }
+}
+
+
 
 /* ===============================
    🌍 SECTION 2.5 — FUTURE CTA (CENTERED)
@@ -360,19 +718,24 @@
   box-shadow: 0 12px 30px rgba(0, 180, 216, 0.6);
 }
 
-/* ---------- Responsive ---------- */
+/* ---------- MOBILE CTA ---------- */
 @media (max-width: 768px) {
+  .future-cta {
+    padding: 100px 20px;
+  }
+
   .future-cta-container h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .future-cta-container p {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    margin-bottom: 40px;
   }
 
   .cta-btn {
     font-size: 1rem;
-    padding: 14px 35px;
+    padding: 12px 30px;
   }
 }
 
@@ -389,4 +752,12 @@
 
 .footer p {
   margin: 0;
+}
+
+/* ---------- MOBILE FOOTER ---------- */
+@media (max-width: 768px) {
+  .footer {
+    font-size: 0.85rem;
+    padding: 15px 8px;
+  }
 }

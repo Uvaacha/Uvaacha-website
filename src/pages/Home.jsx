@@ -15,7 +15,7 @@ export default function Home() {
           loop
           muted
           playsInline
-          src="/Home.mp4"
+          src="/Home.webm"
           type="video/mp4"
         ></video>
 
@@ -61,7 +61,7 @@ export default function Home() {
             transition={{ duration: 1 }}
             viewport={{ once: true }}
           >
-            <img src="/Home-1.jpg" alt="Future-Proofing Business" />
+            <img src="/Home-1.webp" alt="Future-Proofing Business" />
           </motion.div>
         </div>
       </section>
@@ -78,7 +78,7 @@ export default function Home() {
           viewport={{ once: true }}
         >
           <div className="value-image-alt">
-            <img src="/360.jpg" alt="360° Value" />
+            <img src="/360.webp" alt="360° Value" />
           </div>
 
           <div className="value-text-alt">
@@ -117,7 +117,7 @@ export default function Home() {
           {/* IMAGE ON RIGHT */}
           <div className="performance-image">
             <img
-              src="/Home-3.jpg"
+              src="/Home-3.webp"
               alt="Redefining Performance and Efficiency"
             />
           </div>

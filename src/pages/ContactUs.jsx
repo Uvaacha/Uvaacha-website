@@ -39,7 +39,7 @@ const ContactUs = () => {
         className="hero-section"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(0, 26, 51, 0.7), rgba(0, 43, 91, 0.8)), url('/contactus.jpg')",
+            "linear-gradient(rgba(0, 26, 51, 0.7), rgba(0, 43, 91, 0.8)), url('/contactus.webp')",
           backgroundPosition: "center",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
@@ -50,7 +50,7 @@ const ContactUs = () => {
           <div className="hero-center">
             <h1>Contact Us</h1>
             <p>
-              Let’s connect — we’re always open to new ideas, collaborations,
+              Let’s connect — we’re always open to new ideas, collaborations
               and opportunities. Reach out and our team will get back to you
               soon.
             </p>
@@ -95,7 +95,14 @@ const ContactUs = () => {
                 <FaEnvelope className="info-icon" />
                 <div>
                   <h3>Email</h3>
-                  <p>info@uvaacha.co.in</p>
+                  <p>
+                    <a
+                      href="mailto:info@uvaacha.co.in"
+                      className="email-link"
+                    >
+                      info@uvaacha.co.in
+                    </a>
+                  </p>
                 </div>
               </div>
             </div>
@@ -145,6 +152,11 @@ const ContactUs = () => {
           </div>
         </div>
       </section>
+
+      {/* ================= FOOTER ================= */}
+      <footer className="footer">
+        <p>© 2025 Uvaacha Enterprises Pvt Ltd. All rights reserved.</p>
+      </footer>
     </div>
   );
 };

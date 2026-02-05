@@ -16,7 +16,7 @@ const Healthcare = () => {
       <section
         className="healthcare-hero"
         style={{
-          backgroundImage: `url(${process.env.PUBLIC_URL}/Health-Hero.jpg)`,
+          backgroundImage: `url(${process.env.PUBLIC_URL}/Health-Hero.webp)`,
         }}
       >
         <div className="healthcare-overlay">
@@ -48,7 +48,7 @@ const Healthcare = () => {
 
           <div className="innovation-image">
             <img
-              src={`${process.env.PUBLIC_URL}/Healthcare1.jpg`}
+              src={`${process.env.PUBLIC_URL}/Healthcare1.webp`}
               alt="Transforming Healthcare Systems"
             />
           </div>
@@ -61,7 +61,7 @@ const Healthcare = () => {
         <div className="core-container">
           <div className="core-card">
             <img
-              src={`${process.env.PUBLIC_URL}/Healthcare2.jpeg`}
+              src={`${process.env.PUBLIC_URL}/Healthcare2.webp`}
               alt="EHR & Telemedicine"
             />
             <div className="core-text">
@@ -75,7 +75,7 @@ const Healthcare = () => {
 
           <div className="core-card">
             <img
-              src={`${process.env.PUBLIC_URL}/Healthcare3.jpeg`}
+              src={`${process.env.PUBLIC_URL}/Healthcare3.webp`}
               alt="Patient Experience Platforms"
             />
             <div className="core-text">
@@ -89,7 +89,7 @@ const Healthcare = () => {
 
           <div className="core-card">
             <img
-              src={`${process.env.PUBLIC_URL}/Healthcare4.jpg`}
+              src={`${process.env.PUBLIC_URL}/Healthcare4.webp`}
               alt="AI & Predictive Analytics"
             />
             <div className="core-text">
@@ -103,7 +103,7 @@ const Healthcare = () => {
 
           <div className="core-card">
             <img
-              src={`${process.env.PUBLIC_URL}/Healthcare5.jpg`}
+              src={`${process.env.PUBLIC_URL}/Healthcare5.webp`}
               alt="IoT & Smart Medical Devices"
             />
             <div className="core-text">
@@ -131,7 +131,7 @@ const Healthcare = () => {
 
           <div className="data-image">
             <img
-              src={`${process.env.PUBLIC_URL}/Healthcare6.jpg`}
+              src={`${process.env.PUBLIC_URL}/Healthcare6.webp`}
               alt="Data-Driven Insights"
             />
           </div>
@@ -148,7 +148,7 @@ const Healthcare = () => {
         <div className="domain-card">
           <div className="domain-image">
             <img
-              src={`${process.env.PUBLIC_URL}/Healthcare7.jpeg`}
+              src={`${process.env.PUBLIC_URL}/Healthcare7.webp`}
               alt="Hospital & Clinical Operations"
             />
           </div>
@@ -165,7 +165,7 @@ const Healthcare = () => {
         <div className="domain-card reverse">
           <div className="domain-image">
             <img
-              src={`${process.env.PUBLIC_URL}/Healthcare8.jpeg`}
+              src={`${process.env.PUBLIC_URL}/Healthcare8.webp`}
               alt="Telehealth & Virtual Care"
             />
           </div>
@@ -182,7 +182,7 @@ const Healthcare = () => {
         <div className="domain-card">
           <div className="domain-image">
             <img
-              src={`${process.env.PUBLIC_URL}/Healthcare9.jpg`}
+              src={`${process.env.PUBLIC_URL}/Healthcare9.webp`}
               alt="Health Data & Interoperability"
             />
           </div>
@@ -199,7 +199,7 @@ const Healthcare = () => {
         <div className="domain-card reverse">
           <div className="domain-image">
             <img
-              src={`${process.env.PUBLIC_URL}/Healthcare10.jpg`}
+              src={`${process.env.PUBLIC_URL}/Healthcare10.webp`}
               alt="Medical Device & IoT Integration"
             />
           </div>

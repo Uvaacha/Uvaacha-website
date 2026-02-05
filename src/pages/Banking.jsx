@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   FaCogs,
@@ -11,6 +11,11 @@ import {
 import "./Banking.css";
 
 export default function Banking() {
+  useEffect(() => {
+    // Scroll to top on page load
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   const scrollToDomain = () => {
     const section = document.getElementById("domain-expertise");
     if (section) {
@@ -27,7 +32,7 @@ export default function Banking() {
         <div
           className="banking-hero-bg"
           style={{
-            backgroundImage: `url("/Banking-Hero.jpg")`,
+            backgroundImage: `url("/Banking-Hero.webp")`,
           }}
         ></div>
 
@@ -150,7 +155,7 @@ export default function Banking() {
         <div
           className="managed-bg"
           style={{
-            backgroundImage: `url("/Banking-3.jpg")`,
+            backgroundImage: `url("/Banking-3.webp")`,
           }}
         ></div>
 
@@ -176,17 +181,17 @@ export default function Banking() {
           <div className="managed-grid">
             {[
               {
-                img: "/Application-Management.jpeg",
+                img: "/Application-Management.webp",
                 title: "Application Management",
                 desc: "End-to-end management of core banking and trading platforms for reliability and agility.",
               },
               {
-                img: "/Infrastructure-Management.jpg",
+                img: "/Infrastructure-Management.webp",
                 title: "Infrastructure Management",
                 desc: "24/7 monitoring and cloud readiness for seamless availability and disaster recovery.",
               },
               {
-                img: "/Security-banking.jpg",
+                img: "/Security-banking.webp",
                 title: "Security Operations",
                 desc: "Continuous threat detection, incident response and vulnerability management.",
               },
@@ -199,7 +204,7 @@ export default function Banking() {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
               >
-                <img src={item.img} alt={item.title} />
+                <img src={item.img} alt={item.title} loading="lazy" />
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
               </motion.div>
@@ -227,7 +232,7 @@ export default function Banking() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1 }}
           >
-            Let’s build the future of banking—together.
+            Let's build the future of banking—together.
           </motion.p>
 
           <motion.a

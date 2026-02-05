@@ -4,20 +4,40 @@
 :root {
   --primary: #002b5b;
   --secondary: #f6f8f9;
-  --accent: #00c6d7; /* Cyan button */
-  --highlight: #f2b705; /* Yellow subtext */
+  --accent: #00c6d7;
+  --highlight: #f2b705;
+}
+
+/* ===============================
+   GLOBAL RESET
+   =============================== */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 /* Base layout */
 .banking-page {
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   background-color: var(--secondary);
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 /* ===============================
-   HERO SECTION (PARALLAX)
+   HERO SECTION
    =============================== */
 .banking-hero {
   position: relative;
@@ -37,13 +57,6 @@
   background-size: cover;
   background-attachment: fixed;
   filter: brightness(0.8);
-  z-index: 1;
-}
-
-.banking-hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(2, 8, 15, 0.65);
   z-index: 1;
 }
 
@@ -104,6 +117,7 @@
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 198, 215, 0.3);
 }
 
 .banking-btn:hover {
@@ -120,6 +134,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 2;
 }
 
 .domain-center-text {
@@ -149,6 +165,8 @@
   color: #ffffff;
   text-align: center;
   padding: 5rem 8%;
+  position: relative;
+  z-index: 2;
 }
 
 .banking-testing h2 {
@@ -214,6 +232,7 @@
   padding: 6rem 8%;
   text-align: center;
   overflow: hidden;
+  z-index: 2;
 }
 
 .managed-bg {
@@ -305,6 +324,8 @@
   color: #002b5b;
   text-align: center;
   padding: 6rem 2rem;
+  position: relative;
+  z-index: 2;
 }
 
 .cta-container {
@@ -327,6 +348,7 @@
 }
 
 .cta-button {
+  display: inline-block;
   background-color: var(--accent);
   color: #ffffff;
   border: none;
@@ -337,6 +359,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 198, 215, 0.3);
+  text-decoration: none;
 }
 
 .cta-button:hover {
@@ -345,24 +368,29 @@
 }
 
 /* ===============================
-   RESPONSIVE DESIGN
+   FOOTER
    =============================== */
-@media (max-width: 992px) {
-  .testing-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.footer {
+  width: 100%;
+  background-color: #001f43;
+  color: #cfd6e0;
+  text-align: center;
+  padding: 25px 10px;
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 2;
+}
 
-  .managed-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .managed-card {
-    width: 90%;
-  }
-
+/* ===============================
+   TABLET RESPONSIVE (≤1024px)
+   =============================== */
+@media (max-width: 1024px) {
   .banking-hero-content h1 {
-    font-size: 2.3rem;
+    font-size: 2.5rem;
+  }
+
+  .banking-hero-content p {
+    font-size: 1.3rem;
   }
 
   .domain-center-text h2 {
@@ -372,19 +400,331 @@
   .domain-center-text p {
     font-size: 1rem;
   }
+
+  .testing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .managed-grid {
+    gap: 1.5rem;
+  }
 }
 
-@media (max-width: 600px) {
-  .testing-grid {
-    grid-template-columns: 1fr;
+/* ===============================
+   MOBILE RESPONSIVE (≤768px)
+   =============================== */
+@media (max-width: 768px) {
+  /* Hero Section - Parallax effect on mobile */
+  .banking-hero {
+    height: 100vh;
+    position: relative;
+  }
+
+  .banking-hero-bg {
+    position: fixed; /* Fixed positioning for parallax */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-attachment: scroll; /* Better performance on mobile */
+    z-index: 0;
+  }
+  
+  .banking-hero::before {
+    position: fixed;
+    z-index: 1;
+  }
+
+  .banking-hero-content {
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .banking-hero-content h1 {
+    font-size: 2rem;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+
+  .banking-hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .banking-btn {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.95rem;
+  }
+
+  /* Domain Expertise - slides over hero */
+  .banking-domain {
+    padding: 4rem 1.5rem;
+    position: relative;
+    z-index: 3;
+    background-color: #f6f8f9;
+    box-shadow: 0 -5px 20px rgba(152, 150, 150, 0.1);
+  }
+
+  .domain-center-text h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .domain-center-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* Testing Section */
+  .banking-testing {
+    padding: 4rem 5%;
+    position: relative;
+    z-index: 3;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
   }
 
   .banking-testing h2 {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
+    margin-bottom: 2rem;
+  }
+
+  .testing-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .testing-card {
+    max-width: 100%;
+    padding: 1.8rem 1.3rem;
+  }
+
+  .testing-icon {
+    font-size: 2rem;
+  }
+
+  .testing-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .testing-card p {
+    font-size: 0.9rem;
+  }
+
+  /* Managed Services */
+  .banking-managed {
+    padding: 4rem 5%;
+    position: relative;
+    z-index: 3;
+  }
+
+  .managed-bg {
+    background-attachment: scroll;
   }
 
   .managed-overlay h2 {
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+  }
+
+  .managed-overlay p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  }
+
+  .managed-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .managed-card {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .managed-card img {
+    height: 200px;
+  }
+
+  /* CTA Section */
+  .banking-cta {
+    padding: 4rem 1.5rem;
+    position: relative;
+    z-index: 3;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .banking-cta h2 {
+    font-size: 1.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .banking-cta p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-button {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.95rem;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 20px 15px;
+    font-size: 0.85rem;
+    position: relative;
+    z-index: 3;
+  }
+}
+
+/* ===============================
+   SMALL MOBILE (≤480px)
+   =============================== */
+@media (max-width: 480px) {
+  /* Hero */
+  .banking-hero-content {
+    padding: 0 1rem;
+  }
+
+  .banking-hero-content h1 {
     font-size: 1.6rem;
+    line-height: 1.3;
+  }
+
+  .banking-hero-content p {
+    font-size: 1rem;
+  }
+
+  .banking-btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  /* Domain Expertise */
+  .banking-domain {
+    padding: 3rem 1rem;
+  }
+
+  .domain-center-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .domain-center-text p {
+    font-size: 0.95rem;
+  }
+
+  /* Testing */
+  .banking-testing {
+    padding: 3rem 4%;
+  }
+
+  .banking-testing h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .testing-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .testing-icon {
+    font-size: 1.8rem;
+  }
+
+  .testing-card h3 {
+    font-size: 1rem;
+  }
+
+  .testing-card p {
+    font-size: 0.85rem;
+  }
+
+  /* Managed Services */
+  .banking-managed {
+    padding: 3rem 4%;
+  }
+
+  .managed-overlay h2 {
+    font-size: 1.5rem;
+  }
+
+  .managed-overlay p {
+    font-size: 0.95rem;
+    padding: 0;
+  }
+
+  .managed-card {
+    max-width: 100%;
+  }
+
+  .managed-card img {
+    height: 180px;
+  }
+
+  .managed-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .managed-card p {
+    font-size: 0.9rem;
+  }
+
+  /* CTA */
+  .banking-cta {
+    padding: 3rem 1rem;
+  }
+
+  .banking-cta h2 {
+    font-size: 1.6rem;
+  }
+
+  .banking-cta p {
+    font-size: 0.95rem;
+  }
+
+  .cta-button {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* ===============================
+   VERY SMALL MOBILE (≤360px)
+   =============================== */
+@media (max-width: 360px) {
+  .banking-hero-content h1 {
+    font-size: 1.4rem;
+  }
+
+  .banking-hero-content p {
+    font-size: 0.95rem;
+  }
+
+  .domain-center-text h2 {
+    font-size: 1.3rem;
+  }
+
+  .domain-center-text p {
+    font-size: 0.9rem;
+  }
+
+  .banking-testing h2 {
+    font-size: 1.3rem;
+  }
+
+  .testing-card {
+    padding: 1.3rem 0.8rem;
+  }
+
+  .managed-overlay h2 {
+    font-size: 1.3rem;
+  }
+
+  .managed-overlay p {
+    font-size: 0.9rem;
   }
 
   .managed-card img {
@@ -392,18 +732,10 @@
   }
 
   .banking-cta h2 {
-    font-size: 1.9rem;
+    font-size: 1.4rem;
   }
 
   .banking-cta p {
-    font-size: 1rem;
-  }
-
-  .domain-center-text h2 {
-    font-size: 1.6rem;
-  }
-
-  .domain-center-text p {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 }

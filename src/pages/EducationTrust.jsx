@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./EducationTrust.css";
 
 function EducationTrust() {
-  const heroImage = process.env.PUBLIC_URL + "/education-hero.jpeg";
+  const heroImage = process.env.PUBLIC_URL + "/education-hero.webp";
+
+  useEffect(() => {
+    // Scroll to top on page load
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   // ✅ Smooth scroll to Robotics, AI & Emerging Technologies section
   const scrollToTechSection = () => {
@@ -29,7 +34,7 @@ function EducationTrust() {
             </h1>
             <p>
               At Uvaacha Vision, education meets innovation — nurturing young
-              thinkers to become creators of tomorrow’s world.
+              thinkers to become creators of tomorrow's world.
             </p>
 
             {/* ✅ Scroll to "Robotics, AI & Emerging Technologies" */}
@@ -99,8 +104,9 @@ function EducationTrust() {
           <div className="tech-grid">
             <div className="tech-card">
               <img
-                src={process.env.PUBLIC_URL + "/Education1.jpg"}
+                src={process.env.PUBLIC_URL + "/Education1.webp"}
                 alt="AI & Coding"
+                loading="lazy"
               />
               <h3>AI & Coding</h3>
               <p>
@@ -111,8 +117,9 @@ function EducationTrust() {
 
             <div className="tech-card">
               <img
-                src={process.env.PUBLIC_URL + "/Education2.1.jpg"}
+                src={process.env.PUBLIC_URL + "/Education2.1.webp"}
                 alt="Hands-on Robotics"
+                loading="lazy"
               />
               <h3>Hands-on Robotics</h3>
               <p>
@@ -124,8 +131,9 @@ function EducationTrust() {
 
             <div className="tech-card">
               <img
-                src={process.env.PUBLIC_URL + "/Education3.jpeg"}
+                src={process.env.PUBLIC_URL + "/Education3.webp"}
                 alt="Drone Technology"
+                loading="lazy"
               />
               <h3>Drone Technology</h3>
               <p>
@@ -136,8 +144,9 @@ function EducationTrust() {
 
             <div className="tech-card">
               <img
-                src={process.env.PUBLIC_URL + "/3d1.JPG"}
+                src={process.env.PUBLIC_URL + "/3d1.webp"}
                 alt="3D Printing & Design"
+                loading="lazy"
               />
               <h3>3D Printing & Design</h3>
               <p>
@@ -149,8 +158,9 @@ function EducationTrust() {
 
             <div className="tech-card">
               <img
-                src={process.env.PUBLIC_URL + "/Education5.jpg"}
+                src={process.env.PUBLIC_URL + "/Education5.webp"}
                 alt="STEM Innovation Labs"
+                loading="lazy"
               />
               <h3>STEM Innovation Labs</h3>
               <p>
@@ -161,8 +171,9 @@ function EducationTrust() {
 
             <div className="tech-card">
               <img
-                src={process.env.PUBLIC_URL + "/edu-ai.JPG"}
+                src={process.env.PUBLIC_URL + "/edu-ai.webp"}
                 alt="AI in Education"
+                loading="lazy"
               />
               <h3>AI in Education</h3>
               <p>
@@ -180,12 +191,12 @@ function EducationTrust() {
           <h2>Building Impact That Lasts</h2>
           <p>
             Every great change begins with a small step — at{" "}
-            <span className="highlight">Uvaacha Vision</span>, we’re on a mission
+            <span className="highlight">Uvaacha Vision</span>, we're on a mission
             to make learning more connected, creative and meaningful.
           </p>
 
           <p>
-            As a growing startup, our focus isn’t just on technology — it’s on
+            As a growing startup, our focus isn't just on technology — it's on
             people. We work closely with schools, students and educators to bring
             hands-on innovation into classrooms, helping young minds learn by
             doing, imagining and creating.
@@ -204,9 +215,9 @@ function EducationTrust() {
         </div>
       </section>
 
-      {/* ============ FINAL CTA SECTION (MATCHING HEALTHCARE STYLE) ============ */}
+      {/* ============ FINAL CTA SECTION ============ */}
       <section className="educationtrust-cta">
-        <h2>Let’s Shape the Future — Together</h2>
+        <h2>Let's Shape the Future — Together</h2>
         <p>
           Join us in redefining education for the next generation. Together, we can
           empower every child to dream, create and lead.

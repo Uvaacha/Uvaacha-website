@@ -12,8 +12,11 @@ import {
   FaBook,
   FaExchangeAlt,
   FaUsers,
+  FaPlus,
+  FaMinus,
+  FaUserTie,
 } from "react-icons/fa";
-import { MdKeyboardArrowDown } from "react-icons/md";
+import { MdKeyboardArrowDown, MdClose } from "react-icons/md";
 import "./Header.css";
 
 const searchMap = {
@@ -41,9 +44,12 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [languageMenu, setLanguageMenu] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
+  
+  // Mobile menu accordion states
+  const [mobileWhatWeDoOpen, setMobileWhatWeDoOpen] = useState(false);
+  const [mobileWhoWeAreOpen, setMobileWhoWeAreOpen] = useState(false);
 
-  const searchRef = useRef(null);
-  const inputRef = useRef(null);
+  const searchInputRef = useRef(null);
 
   // Header shadow on scroll
   useEffect(() => {
@@ -65,20 +71,23 @@ function Header() {
     setSuggestions(results);
   }, [query]);
 
-  // Close search when clicking outside
+  // Focus input when search panel opens
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (searchRef.current && !searchRef.current.contains(event.target)) {
-        setShowSearch(false);
-        setQuery("");
-        setSuggestions([]);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+    if (showSearch && searchInputRef.current) {
+      setTimeout(() => {
+        searchInputRef.current.focus();
+      }, 100);
+    }
+  }, [showSearch]);
 
-  /* ✅ Navigation Handlers — clean instant navigation */
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setMenuOpen(false);
+    setMobileWhatWeDoOpen(false);
+    setMobileWhoWeAreOpen(false);
+  }, [location.pathname]);
+
+  /* ✅ Navigation Handlers */
   const handleSearchSelect = (text) => {
     const key = Object.keys(searchMap).find(
       (k) => k.toLowerCase() === text.toLowerCase()
@@ -100,6 +109,8 @@ function Header() {
     setMenuOpen(false);
     setOpenDropdown(null);
     setLanguageMenu(false);
+    setMobileWhatWeDoOpen(false);
+    setMobileWhoWeAreOpen(false);
   };
 
   const handleHomeClick = (e) => {
@@ -112,14 +123,32 @@ function Header() {
     setMenuOpen(false);
     setOpenDropdown(null);
     setLanguageMenu(false);
+    setMobileWhatWeDoOpen(false);
+    setMobileWhoWeAreOpen(false);
   };
 
   const toggleMobileMenu = () => {
     setMenuOpen((prev) => !prev);
     setOpenDropdown(null);
+    if (!menuOpen) {
+      setMobileWhatWeDoOpen(false);
+      setMobileWhoWeAreOpen(false);
+    }
   };
 
-  // Dropdown hover logic
+  const handleSearchOpen = () => {
+    setShowSearch(true);
+    setQuery("");
+    setSuggestions([]);
+  };
+
+  const handleSearchClose = () => {
+    setShowSearch(false);
+    setQuery("");
+    setSuggestions([]);
+  };
+
+  // Dropdown hover logic (Desktop)
   let dropdownCloseTimer;
   const openDropdownWithDelay = (name) => {
     clearTimeout(dropdownCloseTimer);
@@ -130,208 +159,304 @@ function Header() {
   };
 
   return (
-    <header className={`header-modern ${isScrolled ? "scrolled" : ""}`}>
-      {/* === Mobile Toggle === */}
-      <button
-        className="menu-toggle"
-        onClick={toggleMobileMenu}
-        aria-label="Toggle navigation menu"
-      >
-        {menuOpen ? <FaTimes /> : <FaBars />}
-      </button>
+    <>
+      <header className={`header-modern ${isScrolled ? "scrolled" : ""}`}>
+        {/* === Mobile Toggle === */}
+        <button
+          className="menu-toggle"
+          onClick={toggleMobileMenu}
+          aria-label="Toggle navigation menu"
+        >
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
 
-      {/* === Logo === */}
-      <div className="header-left" onClick={handleHomeClick}>
-        <img src="/uvvacha.png" alt="Uvaacha Logo" className="logo-img" />
-      </div>
+        {/* === Logo === */}
+        <div className="header-left" onClick={handleHomeClick}>
+          <img src="/uvvacha.png" alt="Uvaacha Logo" className="logo-img" />
+        </div>
 
-      {/* === NAVIGATION === */}
-      <nav className="header-nav" role="navigation">
-        <ul className={`menu ${menuOpen ? "active" : ""}`}>
-          <li
-            onClick={handleHomeClick}
-            className={location.pathname === "/" ? "active" : ""}
-          >
-            Home
-          </li>
+        {/* === DESKTOP NAVIGATION === */}
+        <nav className="header-nav desktop-nav" role="navigation">
+          <ul className="menu">
+            <li
+              onClick={handleHomeClick}
+              className={location.pathname === "/" ? "active" : ""}
+            >
+              Home
+            </li>
 
-          {/* What We Do */}
-          <li
-            className={`dropdown ${
-              [
-                "/telecom",
-                "/banking",
-                "/healthcare",
-                "/manufacturing",
-                "/education",
-                "/imports",
-              ].includes(location.pathname)
-                ? "active"
-                : ""
-            }`}
-            onMouseEnter={() => openDropdownWithDelay("what")}
-            onMouseLeave={closeDropdownWithDelay}
-            onClick={() =>
-              setOpenDropdown(openDropdown === "what" ? null : "what")
-            }
-          >
-            <span>
-              What we do{" "}
-              <MdKeyboardArrowDown
-                className={`arrow ${openDropdown === "what" ? "open" : ""}`}
-              />
-            </span>
-            {openDropdown === "what" && (
-              <ul
-                className="dropdown-menu wide"
-                onMouseEnter={() => openDropdownWithDelay("what")}
-                onMouseLeave={closeDropdownWithDelay}
+            {/* What We Do */}
+            <li
+              className={`dropdown ${
+                [
+                  "/telecom",
+                  "/banking",
+                  "/healthcare",
+                  "/manufacturing",
+                  "/education",
+                  "/imports",
+                ].includes(location.pathname)
+                  ? "active"
+                  : ""
+              }`}
+              onMouseEnter={() => openDropdownWithDelay("what")}
+              onMouseLeave={closeDropdownWithDelay}
+              onClick={() =>
+                setOpenDropdown(openDropdown === "what" ? null : "what")
+              }
+            >
+              <span>
+                What we do{" "}
+                <MdKeyboardArrowDown
+                  className={`arrow ${openDropdown === "what" ? "open" : ""}`}
+                />
+              </span>
+              {openDropdown === "what" && (
+                <ul
+                  className="dropdown-menu wide"
+                  onMouseEnter={() => openDropdownWithDelay("what")}
+                  onMouseLeave={closeDropdownWithDelay}
+                >
+                  <div className="dropdown-column">
+                    <li onClick={(e) => handleLinkClick("/telecom", e)}>
+                      <FaBroadcastTower /> Telecom Services
+                    </li>
+                    <li onClick={(e) => handleLinkClick("/banking", e)}>
+                      <FaUniversity /> Banking & Financial Services
+                    </li>
+                    <li onClick={(e) => handleLinkClick("/healthcare", e)}>
+                      <FaHeartbeat /> Health Care Services
+                    </li>
+                  </div>
+                  <div className="dropdown-column">
+                    <li onClick={(e) => handleLinkClick("/manufacturing", e)}>
+                      <FaIndustry /> Manufacturing
+                    </li>
+                    <li onClick={(e) => handleLinkClick("/education", e)}>
+                      <FaBook /> Education & Trust
+                    </li>
+                    <li onClick={(e) => handleLinkClick("/imports", e)}>
+                      <FaExchangeAlt /> Imports & Exports
+                    </li>
+                  </div>
+                </ul>
+              )}
+            </li>
+
+            {/* Who We Are */}
+            <li
+              className={`dropdown ${
+                ["/about", "/leadership"].includes(location.pathname)
+                  ? "active"
+                  : ""
+              }`}
+              onMouseEnter={() => openDropdownWithDelay("who")}
+              onMouseLeave={closeDropdownWithDelay}
+              onClick={() =>
+                setOpenDropdown(openDropdown === "who" ? null : "who")
+              }
+            >
+              <span>
+                Who we are{" "}
+                <MdKeyboardArrowDown
+                  className={`arrow ${openDropdown === "who" ? "open" : ""}`}
+                />
+              </span>
+              {openDropdown === "who" && (
+                <ul
+                  className="dropdown-menu single"
+                  onMouseEnter={() => openDropdownWithDelay("who")}
+                  onMouseLeave={closeDropdownWithDelay}
+                >
+                  <li onClick={(e) => handleLinkClick("/about", e)}>
+                    <FaUsers /> About Us
+                  </li>
+                  <li onClick={(e) => handleLinkClick("/leadership", e)}>
+                    <FaUserTie /> Leadership
+                  </li>
+                </ul>
+              )}
+            </li>
+
+            <li
+              onClick={(e) => handleLinkClick("/careers", e)}
+              className={location.pathname === "/careers" ? "active" : ""}
+            >
+              Careers
+            </li>
+
+            <li
+              onClick={(e) => handleLinkClick("/contact", e)}
+              className={location.pathname === "/contact" ? "active" : ""}
+            >
+              Contact Us
+            </li>
+          </ul>
+        </nav>
+
+        {/* === MOBILE NAVIGATION === */}
+        <nav className={`mobile-nav ${menuOpen ? "active" : ""}`}>
+          <ul className="mobile-menu">
+            <li
+              onClick={handleHomeClick}
+              className={location.pathname === "/" ? "active" : ""}
+            >
+              Home
+            </li>
+
+            {/* What We Do - Mobile Accordion */}
+            <li className="mobile-dropdown">
+              <div
+                className="mobile-dropdown-header"
+                onClick={() => setMobileWhatWeDoOpen(!mobileWhatWeDoOpen)}
               >
-                <div className="dropdown-column">
-                  <li onClick={(e) => handleLinkClick("/telecom", e)}>
-                    <FaBroadcastTower /> Telecom Services
-                  </li>
-                  <li onClick={(e) => handleLinkClick("/banking", e)}>
-                    <FaUniversity /> Banking & Financial Services
-                  </li>
-                  <li onClick={(e) => handleLinkClick("/healthcare", e)}>
-                    <FaHeartbeat /> Health Care Services
-                  </li>
-                </div>
-                <div className="dropdown-column">
-                  <li onClick={(e) => handleLinkClick("/manufacturing", e)}>
-                    <FaIndustry /> Manufacturing
-                  </li>
-                  <li onClick={(e) => handleLinkClick("/education", e)}>
-                    <FaBook /> Education & Trust
-                  </li>
-                  <li onClick={(e) => handleLinkClick("/imports", e)}>
-                    <FaExchangeAlt /> Imports & Exports
-                  </li>
-                </div>
+                <span>What we do</span>
+                {mobileWhatWeDoOpen ? <FaMinus /> : <FaPlus />}
+              </div>
+              <ul className={`mobile-submenu ${mobileWhatWeDoOpen ? "open" : ""}`}>
+                <li onClick={(e) => handleLinkClick("/telecom", e)}>
+                  <FaBroadcastTower /> Telecom Services
+                </li>
+                <li onClick={(e) => handleLinkClick("/banking", e)}>
+                  <FaUniversity /> Banking & Financial Services
+                </li>
+                <li onClick={(e) => handleLinkClick("/healthcare", e)}>
+                  <FaHeartbeat /> Health Care Services
+                </li>
+                <li onClick={(e) => handleLinkClick("/manufacturing", e)}>
+                  <FaIndustry /> Manufacturing
+                </li>
+                <li onClick={(e) => handleLinkClick("/education", e)}>
+                  <FaBook /> Education & Trust
+                </li>
+                <li onClick={(e) => handleLinkClick("/imports", e)}>
+                  <FaExchangeAlt /> Imports & Exports
+                </li>
               </ul>
-            )}
-          </li>
+            </li>
 
-          {/* Who We Are */}
-          <li
-            className={`dropdown ${
-              ["/about", "/leadership"].includes(location.pathname)
-                ? "active"
-                : ""
-            }`}
-            onMouseEnter={() => openDropdownWithDelay("who")}
-            onMouseLeave={closeDropdownWithDelay}
-            onClick={() =>
-              setOpenDropdown(openDropdown === "who" ? null : "who")
-            }
-          >
-            <span>
-              Who we are{" "}
-              <MdKeyboardArrowDown
-                className={`arrow ${openDropdown === "who" ? "open" : ""}`}
-              />
-            </span>
-            {openDropdown === "who" && (
-              <ul
-                className="dropdown-menu single"
-                onMouseEnter={() => openDropdownWithDelay("who")}
-                onMouseLeave={closeDropdownWithDelay}
+            {/* Who We Are - Mobile Accordion */}
+            <li className="mobile-dropdown">
+              <div
+                className="mobile-dropdown-header"
+                onClick={() => setMobileWhoWeAreOpen(!mobileWhoWeAreOpen)}
               >
+                <span>Who we are</span>
+                {mobileWhoWeAreOpen ? <FaMinus /> : <FaPlus />}
+              </div>
+              <ul className={`mobile-submenu ${mobileWhoWeAreOpen ? "open" : ""}`}>
                 <li onClick={(e) => handleLinkClick("/about", e)}>
                   <FaUsers /> About Us
                 </li>
                 <li onClick={(e) => handleLinkClick("/leadership", e)}>
-                  <FaUsers /> Leadership
+                  <FaUserTie /> Leadership
                 </li>
               </ul>
-            )}
-          </li>
+            </li>
 
-          <li
-            onClick={(e) => handleLinkClick("/careers", e)}
-            className={location.pathname === "/careers" ? "active" : ""}
-          >
-            Careers
-          </li>
+            <li
+              onClick={(e) => handleLinkClick("/careers", e)}
+              className={location.pathname === "/careers" ? "active" : ""}
+            >
+              Careers
+            </li>
 
-          <li
-            onClick={(e) => handleLinkClick("/contact", e)}
-            className={location.pathname === "/contact" ? "active" : ""}
-          >
-            Contact Us
-          </li>
-        </ul>
-      </nav>
+            <li
+              onClick={(e) => handleLinkClick("/contact", e)}
+              className={location.pathname === "/contact" ? "active" : ""}
+            >
+              Contact Us
+            </li>
+          </ul>
+        </nav>
 
-      {/* === Search + Language === */}
-      <div className="header-right">
-        {!showSearch ? (
-          <FaSearch className="header-icon" onClick={() => setShowSearch(true)} />
-        ) : (
-          <div className="search-container" ref={searchRef}>
-            <div className="slide-search">
-              <input
-                ref={inputRef}
-                type="text"
-                placeholder="Search..."
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && handleSearchSelect(query)}
-              />
-              <span
-                className="close-icon"
-                onClick={() => {
-                  setShowSearch(false);
-                  setQuery("");
-                  setSuggestions([]);
-                }}
-              >
-                ✕
-              </span>
+        {/* === Search + Language === */}
+        <div className="header-right">
+          <FaSearch className="header-icon" onClick={handleSearchOpen} />
 
-              {suggestions.length > 0 && (
-                <ul
-                  className="suggestions-list"
-                  style={{
-                    width: inputRef.current
-                      ? `${inputRef.current.offsetWidth}px`
-                      : "260px",
-                  }}
-                >
-                  {suggestions.map((item) => (
-                    <li key={item} onClick={() => handleSearchSelect(item)}>
-                      {item.charAt(0).toUpperCase() + item.slice(1)}
-                    </li>
-                  ))}
-                </ul>
-              )}
+          {/* === Language Selector === */}
+          <div className="language-selector">
+            <div
+              className="lang-toggle"
+              onClick={() => setLanguageMenu((prev) => !prev)}
+            >
+              <FaGlobe />
+              <span className="lang-text">Global (En)</span>
+              <MdKeyboardArrowDown className="arrow" />
             </div>
-          </div>
-        )}
 
-        {/* === Language Selector === */}
-        <div className="language-selector">
-          <div
-            className="lang-toggle"
-            onClick={() => setLanguageMenu((prev) => !prev)}
-          >
-            <FaGlobe />
-            <span className="lang-text">Global (En)</span>
-            <MdKeyboardArrowDown className="arrow" />
+            {languageMenu && (
+              <ul className="lang-dropdown">
+                <li>🌎 English</li>
+                <li>🇫🇷 French</li>
+                <li>🇪🇸 Spanish</li>
+                <li>🇮🇳 Hindi</li>
+              </ul>
+            )}
+          </div>
+        </div>
+      </header>
+
+      {/* === RIGHT SIDE SEARCH PANEL === */}
+      <div className={`search-panel ${showSearch ? "active" : ""}`}>
+        <div className="search-panel-header">
+          <div className="search-panel-title">Search</div>
+          <button className="search-panel-close" onClick={handleSearchClose}>
+            <MdClose />
+          </button>
+        </div>
+
+        <div className="search-panel-body">
+          <div className="search-input-wrapper">
+            <FaSearch className="search-input-icon" />
+            <input
+              ref={searchInputRef}
+              type="text"
+              placeholder="Search..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && query.trim()) {
+                  handleSearchSelect(query);
+                }
+              }}
+              className="search-panel-input"
+            />
           </div>
 
-          {languageMenu && (
-            <ul className="lang-dropdown">
-              <li>🌎 English</li>
-              <li>🇫🇷 French</li>
-              <li>🇪🇸 Spanish</li>
-              <li>🇮🇳 Hindi</li>
-            </ul>
+          {/* Search Results */}
+          {suggestions.length > 0 && (
+            <div className="search-results">
+              <div className="search-results-title">Suggestions</div>
+              <ul className="search-results-list">
+                {suggestions.map((item) => (
+                  <li
+                    key={item}
+                    onClick={() => handleSearchSelect(item)}
+                    className="search-result-item"
+                  >
+                    <FaSearch className="search-result-icon" />
+                    <span>{item.charAt(0).toUpperCase() + item.slice(1)}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* No Results */}
+          {query && suggestions.length === 0 && (
+            <div className="search-no-results">
+              <p>No results found for "{query}"</p>
+            </div>
           )}
         </div>
       </div>
-    </header>
+
+      {/* === SEARCH OVERLAY === */}
+      {showSearch && (
+        <div className="search-overlay" onClick={handleSearchClose}></div>
+      )}
+    </>
   );
 }
 

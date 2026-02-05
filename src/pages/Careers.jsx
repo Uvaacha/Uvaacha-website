@@ -16,7 +16,7 @@ export default function Careers() {
         className="hero"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(7, 7, 7, 0.6), rgba(17, 17, 18, 0.7)), url('/carrer1.jpg')",
+            "linear-gradient(rgba(9, 9, 9, 0.6), rgba(20, 5, 5, 0.7)), url('/carrer1.webp')",
         }}
       >
         <div className="hero-overlay">
@@ -37,78 +37,66 @@ export default function Careers() {
         <h2 className="section-title">Current Openings</h2>
 
         <div className="job-list">
-          {/* JOB 1 */}
+          {/* JOB 1 - Educator: Coding & Robotics */}
           <div className="job-card">
-            <h3>Telecom Billing Specialist</h3>
+            <h3>Educator: Coding & Robotics</h3>
             <div className="job-details">
+              <p><strong>Organization:</strong> The Uvaacha International School</p>
               <p><strong>Location:</strong> India</p>
-              <p><strong>Department:</strong> IT / OSS-BSS</p>
+              <p><strong>Department:</strong> Education & Technology</p>
               <p><strong>Employment Type:</strong> Full-Time</p>
             </div>
 
             <h4>Role Overview</h4>
             <p>
-              We are seeking an experienced Telecom Billing Specialist to
-              support, manage and enhance our billing systems. You’ll work with
-              cross-functional teams to ensure billing accuracy, resolve disputes,
-              and improve revenue assurance.
+              Passionate about empowering the next generation with cutting-edge 
+              skills in coding and robotics? We have a spot for you! Join our team 
+              to inspire and educate young minds in the exciting fields of technology 
+              and innovation.
             </p>
-
-            <h4>Key Responsibilities</h4>
-            <ul>
-              <li>Manage billing platforms (Amdocs, Ericsson BSCS, Oracle BRM, Huawei CBS).</li>
-              <li>Analyze CDRs and identify billing anomalies.</li>
-              <li>Configure pricing plans, discounts and promotions.</li>
-              <li>Monitor and troubleshoot mediation, rating and invoicing modules.</li>
-              <li>Collaborate with IT & Finance for revenue assurance.</li>
-              <li>Participate in billing migrations, audits and compliance.</li>
-            </ul>
 
             <h4>Requirements</h4>
             <ul>
-              <li>3+ years in telecom billing systems (postpaid/prepaid).</li>
-              <li>Strong knowledge of OSS/BSS frameworks.</li>
-              <li>Familiar with SQL, Linux, APIs, billing databases.</li>
-              <li>Understanding of mediation and charging mechanisms.</li>
-              <li>Excellent problem-solving and communication skills.</li>
+              <li>A passion for teaching and a genuine interest in coding and robotics</li>
+              <li>A background in education, technology, or a related field</li>
+              <li>Familiarity with coding languages and robotics platforms</li>
             </ul>
+
+            <h4>How to Apply</h4>
+            <p>
+              Send your CV to: <a href="mailto:info@uvaacha.co.in" className="email-link">info@uvaacha.co.in</a>
+            </p>
           </div>
 
-          {/* JOB 2 */}
+          {/* JOB 2 - BSC Chemistry Intern */}
           <div className="job-card">
-            <h3>Telecom Core Network Operations Engineer</h3>
+            <h3>BSC Chemistry Intern</h3>
             <div className="job-details">
+              <p><strong>Organization:</strong> Uvaacha Enterprises Pvt Ltd</p>
               <p><strong>Location:</strong> India</p>
-              <p><strong>Department:</strong> Network Operations</p>
-              <p><strong>Employment Type:</strong> Full-Time | On-Call Rotation Required</p>
+              <p><strong>Department:</strong> Research & Development</p>
+              <p><strong>Employment Type:</strong> Internship</p>
             </div>
 
             <h4>Role Overview</h4>
             <p>
-              We’re looking for a Core Network Operations Engineer to oversee,
-              maintain and optimize our core telecom infrastructure. You'll
-              ensure high availability and performance across voice, data and
-              signaling services.
+              Passionate about applying your Chemistry knowledge in a real-world 
+              environment? We have an opportunity for you! Join our research team 
+              to gain hands-on experience in laboratory work and contribute to 
+              innovative projects.
             </p>
-
-            <h4>Key Responsibilities</h4>
-            <ul>
-              <li>Operate and support MSC, MGW, HLR/HSS, STP, PCRF, IMS and EPC (MME, SGW, PGW).</li>
-              <li>Monitor KPIs, alarms and network health.</li>
-              <li>Perform maintenance, upgrades and patch management.</li>
-              <li>Collaborate with vendors to resolve network issues.</li>
-              <li>Execute failover testing and ensure DR readiness.</li>
-              <li>Support integration of new services and expansions.</li>
-            </ul>
 
             <h4>Requirements</h4>
             <ul>
-              <li>5+ years in telecom core network operations.</li>
-              <li>Hands-on with Ericsson, Nokia, Huawei and ZTE equipment.</li>
-              <li>Deep understanding of 2G/3G/4G/5G Core Networks.</li>
-              <li>Knowledge of SS7, Diameter, SIP, IP/MPLS networks.</li>
-              <li>Excellent troubleshooting and 24x7 operational skills.</li>
+              <li>Currently pursuing a BSc in Chemistry</li>
+              <li>Basic laboratory skills and familiarity with lab equipment</li>
+              <li>Eagerness to learn and assist in research projects</li>
             </ul>
+
+            <h4>How to Apply</h4>
+            <p>
+              Send your CV to: <a href="mailto:info@uvaacha.co.in" className="email-link">info@uvaacha.co.in</a>
+            </p>
           </div>
         </div>
       </section>

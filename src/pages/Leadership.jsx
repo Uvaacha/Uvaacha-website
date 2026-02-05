@@ -50,12 +50,13 @@ export default function Leadership() {
         className="lead-hero"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(0,26,51,0.7), rgba(0,43,91,0.8)), url('/Leadership.jpg')",
+            "linear-gradient(rgba(0,26,51,0.7), rgba(0,43,91,0.8)), url('/Leadership.webp')",
           backgroundPosition: "center",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundAttachment: "fixed", // ✅ Parallax effect
         }}
+        
       >
         <div className="lead-hero-content">
           <motion.h1
