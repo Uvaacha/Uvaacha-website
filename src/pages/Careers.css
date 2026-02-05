@@ -597,3 +597,17 @@ body {
     font-size: 0.9rem;
   }
 }
+/* ===============================
+   EMAIL LINK STYLING
+   =============================== */
+.email-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.email-link:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
