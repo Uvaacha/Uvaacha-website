@@ -3,17 +3,12 @@
   <head>
     <meta charset="utf-8" />
     
-    <!-- Favicon - PNG for all browsers -->
-    <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/logo-16x16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/logo-32x32.png" />
-    <link rel="icon" type="image/png" sizes="48x48" href="%PUBLIC_URL%/logo-48x48.png" />
-    <link rel="icon" type="image/png" sizes="64x64" href="%PUBLIC_URL%/logo-64x64.png" />
+    <!-- Favicon / site icon for browsers and Google search -->
+    <link rel="icon" type="image/png" sizes="1024x1024" href="%PUBLIC_URL%/logo.png" />
+    <link rel="shortcut icon" type="image/png" href="%PUBLIC_URL%/logo.png" />
     
     <!-- Apple Touch Icon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/logo-180x180.png" />
-    
-    <!-- Shortcut icon (fallback for older browsers) -->
-    <link rel="shortcut icon" href="%PUBLIC_URL%/logo.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/logo.png" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
@@ -38,9 +33,9 @@
     <meta property="og:site_name" content="Uvaacha Enterprises" />
     <meta property="og:title" content="Uvaacha Enterprises Pvt Ltd - Multi-Industry Business Solutions" />
     <meta property="og:description" content="Comprehensive business solutions across Telecom, Banking, Healthcare, Manufacturing, Education sectors and Import services." />
-    <meta property="og:image" content="https://www.uvaacha.co.in/og-image.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image" content="https://www.uvaacha.co.in/logo.png" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
     <meta property="og:locale" content="en_IN" />
     
     <!-- ============================================ -->
@@ -50,7 +45,7 @@
     <meta name="twitter:url" content="https://www.uvaacha.co.in/" />
     <meta name="twitter:title" content="Uvaacha Enterprises Pvt Ltd - Multi-Industry Business Solutions" />
     <meta name="twitter:description" content="Comprehensive business solutions across Telecom, Banking, Healthcare, Manufacturing, Education and Import services." />
-    <meta name="twitter:image" content="https://www.uvaacha.co.in/twitter-image.jpg" />
+    <meta name="twitter:image" content="https://www.uvaacha.co.in/logo.png" />
     
     <!-- ============================================ -->
     <!-- ADDITIONAL SEO ENHANCEMENTS                 -->
@@ -76,6 +71,17 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Uvaacha Enterprises Pvt Ltd",
+        "url": "https://www.uvaacha.co.in/",
+        "logo": "https://www.uvaacha.co.in/logo.png",
+        "image": "https://www.uvaacha.co.in/logo.png"
+      }
+    </script>
     
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.

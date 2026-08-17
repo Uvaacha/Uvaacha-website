@@ -15,7 +15,9 @@ import {
   FaPlus,
   FaMinus,
   FaUserTie,
+  FaSprayCan,
 } from "react-icons/fa";
+import { GiSoap } from "react-icons/gi";
 import { MdKeyboardArrowDown, MdClose } from "react-icons/md";
 import "./Header.css";
 
@@ -24,6 +26,12 @@ const searchMap = {
   "banking & financial services": "/banking",
   "health care services": "/healthcare",
   manufacturing: "/manufacturing",
+  "cleaning products": "/cleaning-products",
+  "skin care products": "/skin-care-products",
+  "floor cleaning": "/cleaning-products",
+  "bathroom cleaning": "/cleaning-products",
+  dishwash: "/cleaning-products",
+  "hand wash": "/cleaning-products",
   "education & trust": "/education",
   "imports & exports": "/imports",
   "about us": "/about",
@@ -48,6 +56,7 @@ function Header() {
   // Mobile menu accordion states
   const [mobileWhatWeDoOpen, setMobileWhatWeDoOpen] = useState(false);
   const [mobileWhoWeAreOpen, setMobileWhoWeAreOpen] = useState(false);
+  const [mobileManufacturingOpen, setMobileManufacturingOpen] = useState(false);
 
   const searchInputRef = useRef(null);
 
@@ -85,6 +94,7 @@ function Header() {
     setMenuOpen(false);
     setMobileWhatWeDoOpen(false);
     setMobileWhoWeAreOpen(false);
+    setMobileManufacturingOpen(false);
   }, [location.pathname]);
 
   /* ✅ Navigation Handlers */
@@ -106,11 +116,17 @@ function Header() {
   const handleLinkClick = (path, e) => {
     e?.stopPropagation();
     navigate(path);
+    if (path === "/cleaning-products") {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }
     setMenuOpen(false);
     setOpenDropdown(null);
     setLanguageMenu(false);
     setMobileWhatWeDoOpen(false);
     setMobileWhoWeAreOpen(false);
+    setMobileManufacturingOpen(false);
   };
 
   const handleHomeClick = (e) => {
@@ -125,6 +141,7 @@ function Header() {
     setLanguageMenu(false);
     setMobileWhatWeDoOpen(false);
     setMobileWhoWeAreOpen(false);
+    setMobileManufacturingOpen(false);
   };
 
   const toggleMobileMenu = () => {
@@ -133,6 +150,7 @@ function Header() {
     if (!menuOpen) {
       setMobileWhatWeDoOpen(false);
       setMobileWhoWeAreOpen(false);
+      setMobileManufacturingOpen(false);
     }
   };
 
@@ -193,6 +211,8 @@ function Header() {
                   "/banking",
                   "/healthcare",
                   "/manufacturing",
+                  "/cleaning-products",
+                  "/skin-care-products",
                   "/education",
                   "/imports",
                 ].includes(location.pathname)
@@ -229,8 +249,19 @@ function Header() {
                     </li>
                   </div>
                   <div className="dropdown-column">
-                    <li onClick={(e) => handleLinkClick("/manufacturing", e)}>
-                      <FaIndustry /> Manufacturing
+                    <li className="nested-dropdown">
+                      <span>
+                        <FaIndustry /> Manufacturing
+                        <MdKeyboardArrowDown className="nested-arrow" />
+                      </span>
+                      <ul className="nested-dropdown-menu">
+                        <li onClick={(e) => handleLinkClick("/cleaning-products", e)}>
+                          <FaSprayCan /> Cleaning Products
+                        </li>
+                        <li onClick={(e) => handleLinkClick("/skin-care-products", e)}>
+                          <GiSoap /> Skin Care Products
+                        </li>
+                      </ul>
                     </li>
                     <li onClick={(e) => handleLinkClick("/education", e)}>
                       <FaBook /> Education & Trust
@@ -323,8 +354,27 @@ function Header() {
                 <li onClick={(e) => handleLinkClick("/healthcare", e)}>
                   <FaHeartbeat /> Health Care Services
                 </li>
-                <li onClick={(e) => handleLinkClick("/manufacturing", e)}>
-                  <FaIndustry /> Manufacturing
+                <li className="mobile-sub-dropdown">
+                  <div
+                    className="mobile-sub-dropdown-header"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setMobileManufacturingOpen(!mobileManufacturingOpen);
+                    }}
+                  >
+                    <span>
+                      <FaIndustry /> Manufacturing
+                    </span>
+                    {mobileManufacturingOpen ? <FaMinus /> : <FaPlus />}
+                  </div>
+                  <ul className={`mobile-nested-submenu ${mobileManufacturingOpen ? "open" : ""}`}>
+                    <li onClick={(e) => handleLinkClick("/cleaning-products", e)}>
+                      <FaSprayCan /> Cleaning Products
+                    </li>
+                    <li onClick={(e) => handleLinkClick("/skin-care-products", e)}>
+                      <GiSoap /> Skin Care Products
+                    </li>
+                  </ul>
                 </li>
                 <li onClick={(e) => handleLinkClick("/education", e)}>
                   <FaBook /> Education & Trust

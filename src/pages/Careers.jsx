@@ -37,29 +37,29 @@ export default function Careers() {
         <h2 className="section-title">Current Openings</h2>
 
         <div className="job-list">
-          {/* JOB 1 - Educator: Coding & Robotics */}
+          {/* JOB 1 - Play School Educator */}
           <div className="job-card">
-            <h3>Educator: Coding & Robotics</h3>
+            <h3>Play School Educator</h3>
             <div className="job-details">
               <p><strong>Organization:</strong> The Uvaacha International School</p>
               <p><strong>Location:</strong> India</p>
-              <p><strong>Department:</strong> Education & Technology</p>
+              <p><strong>Department:</strong> Early Childhood Education</p>
               <p><strong>Employment Type:</strong> Full-Time</p>
             </div>
 
             <h4>Role Overview</h4>
             <p>
-              Passionate about empowering the next generation with cutting-edge 
-              skills in coding and robotics? We have a spot for you! Join our team 
-              to inspire and educate young minds in the exciting fields of technology 
-              and innovation.
+              Passionate about nurturing young children through play, stories,
+              activities and creative classroom experiences? Join our team to
+              help build a modern play school where early learners feel safe,
+              confident and excited to learn.
             </p>
 
             <h4>Requirements</h4>
             <ul>
-              <li>A passion for teaching and a genuine interest in coding and robotics</li>
-              <li>A background in education, technology, or a related field</li>
-              <li>Familiarity with coding languages and robotics platforms</li>
+              <li>A passion for early childhood education and child development</li>
+              <li>A background in preschool teaching, childcare, education or a related field</li>
+              <li>Ability to lead play-based activities, stories, art, music and basic learning routines</li>
             </ul>
 
             <h4>How to Apply</h4>

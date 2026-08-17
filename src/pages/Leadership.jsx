@@ -12,6 +12,13 @@ export default function Leadership() {
 
   const directors = [
     {
+      name: "Kedarnath Vattikuntla",
+      title: "Chief Executive Officer (CEO)",
+      img: "/kedarnath.jpeg",
+      desc:
+        "Sets Strategy: Defines the company’s vision and growth strategy, oversees daily operations and business performance, and ensures effective execution of key objectives. Leads the Board by aligning management with strategic decisions and represents the company to clients, shareholders, regulators and key business partners.",
+    },
+    {
       name: "Bhavya Kora",
       title: "Managing Director & Chief Financial Officer (CFO)",
       img: "/bhavya.png",
@@ -20,10 +27,10 @@ export default function Leadership() {
     },
     {
       name: "Likitha Tunga",
-      title: "Director, Business Strategy & Partnerships",
+      title: "Chief Operating Officer (COO)",
       img: "/Liki.png",
       desc:
-        "Focuses on strategic growth initiatives, business alliances and long-term partnerships that strengthen Uvaacha’s industry leadership.",
+        "Drives operational excellence by overseeing daily business functions and streamlining internal processes. Strategic vision into actionable growth, ensuring cross-functional alignment and peak productivity across the organization.",
     },
     // {
     //   name: "Harika Ravitla",

@@ -152,6 +152,60 @@
   background: rgba(10, 156, 214, 0.08);
 }
 
+.dropdown-menu .nested-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 8px;
+}
+
+.dropdown-menu .nested-dropdown::after,
+.dropdown-menu .nested-dropdown-menu li::after {
+  display: none;
+}
+
+.nested-dropdown > span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.nested-arrow {
+  margin-left: auto;
+  transform: rotate(-90deg);
+  color: #0a9cd6;
+}
+
+.nested-dropdown-menu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  list-style: none;
+  min-width: 230px;
+  padding: 12px 14px;
+  margin: 0;
+  background: #0a0f23;
+  border-radius: 8px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+}
+
+.nested-dropdown:hover .nested-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.nested-dropdown-menu li {
+  width: 100%;
+  padding: 10px 8px;
+}
+
 .dropdown-menu.single {
   display: flex;
   flex-direction: column;
@@ -264,6 +318,50 @@
   border-bottom: none;
 }
 
+.mobile-sub-dropdown {
+  display: block !important;
+  padding: 0 !important;
+}
+
+.mobile-sub-dropdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px 24px 16px 44px;
+}
+
+.mobile-sub-dropdown-header span {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mobile-sub-dropdown-header svg {
+  font-size: 14px;
+  color: var(--accent);
+  min-width: 18px;
+}
+
+.mobile-nested-submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  background: #eef4f8;
+  transition: max-height 0.35s ease;
+}
+
+.mobile-nested-submenu.open {
+  max-height: 180px;
+}
+
+.mobile-nested-submenu li {
+  padding-left: 64px;
+  background: transparent;
+}
+
 /* ===============================
    RIGHT SECTION (Search + Language)
    =============================== */
@@ -273,9 +371,8 @@
   gap: 16px;
   flex: 0 0 auto;
   z-index: 3100;
-  margin-right: 40px;
-  position: relative;
-  right: -140px;
+  margin-right: 0;
+  position: static;
 }
 
 .header-icon {

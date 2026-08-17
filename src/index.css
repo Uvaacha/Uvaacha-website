@@ -23,7 +23,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   /* ✅ FIX: eliminate sub-pixel overflow */
-  overflow-x: clip !important;
+  overflow-x: hidden !important;
   overflow-y: auto;
   position: relative;
   box-sizing: border-box;
@@ -36,7 +36,6 @@ body {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
-  max-width: 100%;
 }
 
 /* ✅ Restrict all media to viewport width */
@@ -49,12 +48,9 @@ video {
 }
 
 /* ✅ Prevent right-side scroll gap */
-section,
-div,
-main {
-  overflow-x: clip;
-  width: 100%;
-  position: relative;
+main,
+section {
+  max-width: 100%;
 }
 
 /* ✅ React root + wrappers fill height and unify bg */
@@ -92,7 +88,6 @@ main > section:first-child,
 
 /* ✅ Stop top/bottom rubber-band scroll (iOS/Touch devices) */
 body {
-  overscroll-behavior-y: none;
   overscroll-behavior-x: none;
   touch-action: pan-y;
 }
@@ -107,4 +102,131 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #7a8da0;
+}
+
+/* =====================================================
+   Scroll Stability Fix
+   -----------------------------------------------------
+   Page CSS is bundled globally, so repeated mobile
+   parallax rules were fixing heroes to the viewport and
+   pushing content down with 100vh margins. Keep heroes in
+   normal document flow on mobile and let the page scroll
+   naturally.
+   ===================================================== */
+img,
+video {
+  max-width: 100%;
+}
+
+#root,
+.AppWrapper,
+.App {
+  overflow-x: hidden !important;
+}
+
+@media (max-width: 900px) {
+  .home-hero,
+  .telecom-hero,
+  .banking-hero,
+  .healthcare-hero,
+  .manufacturing-hero,
+  .education-hero,
+  .importexport-hero,
+  .about-hero,
+  .lead-hero,
+  .careers-page .hero,
+  .contact-modern .hero-section {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    height: 100svh !important;
+    min-height: 100svh !important;
+    overflow: hidden;
+  }
+
+  .home-video,
+  .hero-video-container,
+  .banking-hero-bg {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .hero-video {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .hero-overlay,
+  .healthcare-overlay,
+  .education-overlay,
+  .importexport-overlay,
+  .about-hero-overlay,
+  .banking-hero::before {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .telecom-intro,
+  .innovation-section,
+  .education-transform,
+  .global-connections,
+  .who-we-are,
+  .lead-philosophy,
+  .openings-section,
+  .contact-section {
+    margin-top: 0 !important;
+  }
+}
+
+/* Decorative hero layers should never trap wheel or touch scrolling. */
+.home-video,
+.hero-video-container,
+.hero-video,
+.banking-hero-bg,
+.managed-bg,
+.home-hero .hero-content,
+.telecom-hero .hero-overlay,
+.banking-hero::before,
+.banking-hero-content,
+.healthcare-overlay,
+.education-overlay,
+.importexport-overlay,
+.about-hero-overlay,
+.lead-hero-content,
+.careers-page .hero-overlay,
+.contact-modern .hero-overlay {
+  pointer-events: none;
+}
+
+.home-hero a,
+.home-hero button,
+.telecom-hero a,
+.telecom-hero button,
+.banking-hero a,
+.banking-hero button,
+.healthcare-hero a,
+.healthcare-hero button,
+.education-hero a,
+.education-hero button,
+.importexport-hero a,
+.importexport-hero button,
+.about-hero a,
+.about-hero button,
+.lead-hero a,
+.lead-hero button,
+.careers-page .hero a,
+.careers-page .hero button,
+.contact-modern .hero-section a,
+.contact-modern .hero-section button {
+  pointer-events: auto;
+}
+
+html,
+body {
+  overscroll-behavior-y: auto !important;
 }

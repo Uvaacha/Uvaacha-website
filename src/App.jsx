@@ -11,6 +11,8 @@ import Telecom from "./pages/Telecom";
 import Banking from "./pages/Banking";
 import Healthcare from "./pages/Healthcare";
 import Manufacturing from "./pages/Manufacturing";
+import CleaningProducts from "./pages/CleaningProducts";
+import SkinCareProducts from "./pages/SkinCareProducts";
 import EducationTrust from "./pages/EducationTrust";
 import ImportExport from "./pages/ImportExport";
 import AboutUs from "./pages/AboutUs";
@@ -77,6 +79,8 @@ function Layout() {
           <Route path="/banking" element={<Banking />} />
           <Route path="/healthcare" element={<Healthcare />} />
           <Route path="/manufacturing" element={<Manufacturing />} />
+          <Route path="/cleaning-products" element={<CleaningProducts />} />
+          <Route path="/skin-care-products" element={<SkinCareProducts />} />
           <Route path="/education" element={<EducationTrust />} />
           <Route path="/imports" element={<ImportExport />} />
           <Route path="/about" element={<AboutUs />} />

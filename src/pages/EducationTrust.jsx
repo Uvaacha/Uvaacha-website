@@ -2,15 +2,15 @@ import React, { useEffect } from "react";
 import "./EducationTrust.css";
 
 function EducationTrust() {
-  const heroImage = process.env.PUBLIC_URL + "/education-hero.webp";
+  const heroImage = process.env.PUBLIC_URL + "/education%20hero.png";
 
   useEffect(() => {
     // Scroll to top on page load
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-  // ✅ Smooth scroll to Robotics, AI & Emerging Technologies section
-  const scrollToTechSection = () => {
+  // Smooth scroll to the play school ideas section
+  const scrollToLearningSection = () => {
     const section = document.getElementById("education-tech");
     if (section) {
       section.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -18,7 +18,7 @@ function EducationTrust() {
   };
 
   return (
-    <>
+    <div className="education-page">
       {/* ================= HERO SECTION ================= */}
       <section
         className="education-hero"
@@ -29,17 +29,17 @@ function EducationTrust() {
         <div className="education-overlay">
           <div className="education-content">
             <h1>
-              Empowering Minds Through{" "}
-              <span className="highlight">Technology & Innovation</span>
+              Starting a Modern{" "}
+              <span className="highlight">Play School</span>
             </h1>
             <p>
-              At Uvaacha Vision, education meets innovation — nurturing young
-              thinkers to become creators of tomorrow's world.
+              At Uvaacha Vision, we are building a play school where children
+              learn through play, creativity, care and modern teaching ideas.
             </p>
 
-            {/* ✅ Scroll to "Robotics, AI & Emerging Technologies" */}
-            <button className="cta-btn" onClick={scrollToTechSection}>
-              Get Involved
+            {/* Scroll to play school ideas */}
+            <button className="cta-btn" onClick={scrollToLearningSection}>
+              Explore Our Vision
             </button>
           </div>
         </div>
@@ -48,137 +48,135 @@ function EducationTrust() {
       {/* ============ TRANSFORMING EDUCATION SECTION ============ */}
       <section className="education-transform">
         <div className="transform-container">
-          <h2>Transforming Education Through Innovation</h2>
+          <h2>A Modern Play School for Young Learners</h2>
           <p className="intro">
             At <span className="bold-blue">Uvaacha Vision</span>, we believe
-            education is the greatest investment a society can make in its
-            future. Our mission is to bridge the gap between traditional learning
-            and the rapidly changing demands of a digital world.
+            early childhood education should feel joyful, safe and meaningful.
+            Our play school will help children build confidence, curiosity and
+            strong foundations through age-appropriate learning experiences.
           </p>
 
           <p className="secondary">
-            We are redefining the classroom experience by integrating
-            technology, creativity and emotional intelligence into every
-            lesson — ensuring that students not only learn but also{" "}
-            <span className="highlight-text">think, explore and innovate.</span>
+            We are designing classrooms that combine guided play, storytelling,
+            movement, art, nature activities and emotional development so every
+            child can{" "}
+            <span className="highlight-text">learn, explore and grow.</span>
           </p>
 
           <div className="cards-grid">
             <div className="edu-card bordered">
-              <h3>🌍 Holistic Learning</h3>
+              <h3>Holistic Learning</h3>
               <p>
-                A balanced approach combining academics, personal growth and
-                moral values for complete character development.
+                A balanced approach that supports language, social skills,
+                creativity, movement and values from the earliest years.
               </p>
             </div>
 
             <div className="edu-card bordered">
-              <h3>💡 Innovation-Driven</h3>
+              <h3>Modern Ideas</h3>
               <p>
-                Advanced methodologies, robotics education and AI-integrated
-                learning make students creators, not just learners.
+                Activity-based methods, child-friendly spaces and creative
+                teaching practices make learning natural and engaging.
               </p>
             </div>
 
             <div className="edu-card bordered">
-              <h3>🤝 Empowering Educators</h3>
+              <h3>Caring Educators</h3>
               <p>
-                Teacher training programs that inspire educators to lead with
-                creativity, technology and care.
+                Teachers guide children with patience, warmth and structure,
+                helping each child feel seen, safe and encouraged.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ============ ROBOTICS, AI & TECHNOLOGY SECTION ============ */}
+      {/* ============ MODERN PLAY SCHOOL SECTION ============ */}
       <section id="education-tech" className="education-tech">
         <div className="tech-container">
-          <h2>Robotics, AI & Emerging Technologies</h2>
+          <h2>Play School With Modern Ideas</h2>
           <p className="tech-intro">
-            Preparing students for the technology-driven world through hands-on
-            learning, creativity and innovation across multiple domains of modern
-            science and engineering.
+            Designed for early childhood, our learning approach blends play,
+            discovery, creativity and daily routines that help children become
+            confident, curious and school-ready.
           </p>
 
           <div className="tech-grid">
-            <div className="tech-card">
+            <div className="tech-card accent-teal">
               <img
-                src={process.env.PUBLIC_URL + "/Education1.webp"}
-                alt="AI & Coding"
+                src={process.env.PUBLIC_URL + "/creativity%20classroom.png"}
+                alt="Creative Classrooms"
                 loading="lazy"
               />
-              <h3>AI & Coding</h3>
+              <h3>Creative Classrooms</h3>
               <p>
-                Learn to think algorithmically and build intelligent systems that
-                can solve real-world problems using Artificial Intelligence.
+                Bright, welcoming spaces where children can read, draw, build,
+                imagine and interact with their teachers and friends.
               </p>
             </div>
 
-            <div className="tech-card">
+            <div className="tech-card accent-sun">
               <img
-                src={process.env.PUBLIC_URL + "/Education2.1.webp"}
-                alt="Hands-on Robotics"
+                src={process.env.PUBLIC_URL + "/activity%20learning.png"}
+                alt="Activity-Based Learning"
                 loading="lazy"
               />
-              <h3>Hands-on Robotics</h3>
+              <h3>Activity-Based Learning</h3>
               <p>
-                Build and program robots using interactive kits, sensors and
-                motors — learning mechanical, electrical and software design
-                fundamentals.
+                Songs, stories, puzzles, games and hands-on activities help
+                children understand ideas by doing and experiencing.
               </p>
             </div>
 
-            <div className="tech-card">
+            <div className="tech-card accent-coral">
               <img
-                src={process.env.PUBLIC_URL + "/Education3.webp"}
-                alt="Drone Technology"
+                src={process.env.PUBLIC_URL + "/language.png"}
+                alt="Language and Confidence"
                 loading="lazy"
               />
-              <h3>Drone Technology</h3>
+              <h3>Language & Confidence</h3>
               <p>
-                Understand aerodynamics, sensors and flight programming through
-                drone kits — inspiring next-gen aerospace innovators.
+                Rhymes, storytelling, conversation circles and role play support
+                vocabulary, expression and self-confidence.
               </p>
             </div>
 
-            <div className="tech-card">
+            <div className="tech-card accent-lilac">
               <img
-                src={process.env.PUBLIC_URL + "/3d1.webp"}
-                alt="3D Printing & Design"
+                src={process.env.PUBLIC_URL + "/art%20music.png"}
+                alt="Art, Music and Movement"
                 loading="lazy"
               />
-              <h3>3D Printing & Design</h3>
+              <h3>Art, Music & Movement</h3>
               <p>
-                Learn the future of manufacturing with digital modeling and 3D
-                printing — turning ideas into real prototypes through creative
-                design.
+                Drawing, craft, music, dance and physical play help children
+                develop creativity, coordination and joyful expression.
               </p>
             </div>
 
-            <div className="tech-card">
+            <div className="tech-card accent-mint">
               <img
-                src={process.env.PUBLIC_URL + "/Education5.webp"}
-                alt="STEM Innovation Labs"
+                src={process.env.PUBLIC_URL + "/foundational%20summary.png"}
+                alt="Foundational Numeracy"
                 loading="lazy"
               />
-              <h3>STEM Innovation Labs</h3>
+              <h3>Foundational Numeracy</h3>
               <p>
-                Bridge science, technology, engineering and art with collaborative
-                projects that spark imagination and teamwork.
+                Early number sense, shapes, patterns and sorting are introduced
+                through simple games and everyday classroom activities.
               </p>
             </div>
 
-            <div className="tech-card">
+            <div className="tech-card accent-blue">
               <img
-                src={process.env.PUBLIC_URL + "/edu-ai.webp"}
-                alt="AI in Education"
+                src={process.env.PUBLIC_URL + "/parent%20meeting.png"}
+                alt="Parent Partnership"
                 loading="lazy"
               />
-              <h3>AI in Education</h3>
+              <h3>Parent Partnership</h3>
               <p>
-                Explore how Artificial Intelligence is transforming classrooms,
-                personalizing learning and empowering teachers with smart tools.
+                Regular communication with families keeps each child's growth,
+                habits and milestones supported both at school and at home.
               </p>
             </div>
           </div>
@@ -196,16 +194,15 @@ function EducationTrust() {
           </p>
 
           <p>
-            As a growing startup, our focus isn't just on technology — it's on
-            people. We work closely with schools, students and educators to bring
-            hands-on innovation into classrooms, helping young minds learn by
-            doing, imagining and creating.
+            As a growing startup, our focus is on children, families and
+            educators. We are creating a warm play school environment where
+            young minds learn by doing, imagining and creating.
           </p>
 
           <p>
-            From early experiments with robotics and AI education to building
-            real-world problem-solving programs, every project we take up brings us
-            closer to shaping a more confident, skilled and curious generation.
+            From planning child-friendly classrooms to building meaningful early
+            learning programs, every step brings us closer to shaping a more
+            confident, happy and curious generation.
           </p>
 
           <p className="impact-sub">
@@ -236,7 +233,7 @@ function EducationTrust() {
           reserved.
         </p>
       </footer>
-    </>
+    </div>
   );
 }
 
